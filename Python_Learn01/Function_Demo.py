@@ -3,7 +3,7 @@
 注意：
 1.编码必须为utf-8
 2.python中默认使用换行符作为结束符
-3.语句块的结束全看空格缩进,不要使用tab
+3.语句块的结束全看空格缩进,不要使s用tab
 4.python中大约有70+BIF，想要查看所有的BIF只需要在SHELL或IDLE中输入：dir(__builtins__)，所有的小写单词都是BIF，可以使用help(BIF)查看具体用法
 5.在交互式解释器中，第一次输入import this可以查看python圣经
 6.Python3中默认最大递归深度不大于100

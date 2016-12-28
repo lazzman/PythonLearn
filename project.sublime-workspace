@@ -1,0 +1,294 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 354.0,
+		"last_filter": "pack ins",
+		"selected_items":
+		[
+			[
+				"pack ins",
+				"Package Control: List Packages"
+			],
+			[
+				"pack rem",
+				"Package Control: Remove Package"
+			],
+			[
+				"pack inst",
+				"Package Control: List Packages"
+			],
+			[
+				"package re",
+				"Package Control: Remove Package"
+			],
+			[
+				"packre",
+				"Package Control: Remove Package"
+			],
+			[
+				"view",
+				"View: Toggle Menu"
+			],
+			[
+				"package con",
+				"Package Control: List Packages"
+			],
+			[
+				"package ",
+				"Package Control: Enable Package"
+			],
+			[
+				"package ins",
+				"Package Control: Install Package"
+			],
+			[
+				"git sta",
+				"Git: Status"
+			],
+			[
+				"git add",
+				"Git: Quick Add"
+			],
+			[
+				"git push",
+				"Git: Push Current Branch"
+			],
+			[
+				"git remo",
+				"Git: Remote"
+			],
+			[
+				"git ",
+				"Git: Remote"
+			],
+			[
+				"",
+				"About"
+			],
+			[
+				"Git: Status",
+				"Git: Status"
+			],
+			[
+				"Package Control: ins",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: List Packages"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: in",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 414.0
+	},
+	"console":
+	{
+		"height": 307.0,
+		"history":
+		[
+			"cmd",
+			"git:status",
+			"Git: Status",
+			"git:status",
+			"wakaTime",
+			"Install Package",
+			"import urllib.request,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d39e33b79698005270310898eea76'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)",
+			"Install Package",
+			"Install Package OmniMarkupPreviewer",
+			"install package OmniMarkupPreviewer",
+			"install package",
+			"import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())",
+			"\"ignored_packages\": [..., \"Markdown\"]",
+			"\"ignored_packages\": [..., \"Markdown\"],"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/D/elifer/Python/Python3Learn"
+	],
+	"file_history":
+	[
+		"/D/elifer/Python/Python3Learn/README.md",
+		"/D/elifer/OtherSoftWare/Sublime Text Build 3126 x64/Data/Packages/Default/Preferences.sublime-settings",
+		"/D/elifer/OtherSoftWare/Sublime Text Build 3126 x64/Data/Packages/User/Preferences.sublime-settings",
+		"/D/elifer/OtherSoftWare/Sublime Text Build 3126 x64/Data/Packages/MarkdownEditing/Default (Windows).sublime-keymap",
+		"/D/elifer/Markdown/workspace/Markdown常用语法练习.mdown",
+		"/D/elifer/OtherSoftWare/Sublime Text Build 3126 x64/Data/Packages/Terminal/Default (Windows).sublime-keymap",
+		"/D/elifer/Java/Java_WorkSpace/GuoYuanOA/福卡黑市功能2016.12.26/修改说明.txt",
+		"/D/elifer/Java/Java_WorkSpace/GuoYuanOA/福卡黑市功能2016.12.26/fontsell.sql",
+		"/D/elifer/Python/Python3Learn/.git/config",
+		"/D/elifer/Python/Python_WorkSpace/Python_Learn01/Function_Demo.py",
+		"/D/elifer/Python/Python_WorkSpace/Python_Learn01/List_Demo.py",
+		"/C/Users/Elifer/Desktop/新建文本文档.txt",
+		"/C/Users/Elifer/Desktop/工作账户密码.txt",
+		"/C/Users/Elifer/Desktop/OA中redisKV统计.txt",
+		"/D/elifer/Java/Java_WorkSpace/GuoYuanOA/WebRoot/WEB-INF/classes/sqlMapConfig.xml",
+		"/C/Users/Elifer/Desktop/Function_Demo.py",
+		"/D/elifer/Python/Python_WorkSpace/Python_Learn01/list",
+		"/D/elifer/Python/Python_WorkSpace/Python_Learn01/Markdown常用语法练习.mdown",
+		"/D/elifer/Python/Python_WorkSpace/Python_Learn01/# 一级标题",
+		"/D/elifer/Python/Python_WorkSpace/Python_Learn01/license.key"
+	],
+	"find":
+	{
+		"height": 0.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.git-init":
+	{
+		"height": 67.0
+	},
+	"output.git-push":
+	{
+		"height": 100.0
+	},
+	"output.git-remote":
+	{
+		"height": 100.0
+	},
+	"pinned_build_system": "",
+	"project": "project.sublime-project",
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 153.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
