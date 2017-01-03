@@ -57,8 +57,19 @@
 > #### 二.版本回退
 >> 如上，我们已经学会了修改文件，现在我继续对readme.txt文件进行修改，再增加一行内容为33333333333333.继续执行命令如下：
 ![git add 与 git commit命令](http://upload-images.jianshu.io/upload_images/4191539-f18ed29c27bb3666.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-现在我已经对readme.txt文件做了三次修改了，那么我现在想查看下历史记录，如何查呢？我们现在可以使用命令 git log 演示如下所示：
+现在我已经对readme.txt文件做了三次修改了，那么我现在想查看下历史记录，如何查呢？
+`我们现在可以使用命令 git log 演示如下所示：`
 ![git log命令](http://upload-images.jianshu.io/upload_images/4191539-d34d82411ae2abd1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
-
-
+git log命令显示从最近到最远的显示日志，我们可以看到最近三次提交，最近的一次是,增加内容为333333.上一次是添加内容222222，第一次默认是 111111.如果嫌上面显示的信息太多的话，我们可以使用命令 git log –pretty=oneline 演示如下：
+![git log命令](http://upload-images.jianshu.io/upload_images/4191539-8cb2764921730271.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+`现在我想使用版本回退操作，我想把当前的版本回退到上一个版本，要使用什么命令呢？可以使用如下2种命令，第一种是：git reset  –hard HEAD^ 那么如果要回退到上上个版本只需把HEAD^ 改成 HEAD^^ 以此类推。那如果要回退到前100个版本的话，使用上面的方法肯定不方便，我们可以使用下面的简便命令操作：git reset  –hard HEAD~100 即可。`未回退之前的readme.txt内容如下：
+![未回退之前的内容](http://upload-images.jianshu.io/upload_images/4191539-4af6c1c044395e4f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+如果想回退到上一个版本的命令如下操作：
+![git reset命令](http://upload-images.jianshu.io/upload_images/4191539-7f8a52967d0d90f4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+再来查看下 readme.txt内容如下：通过命令cat readme.txt查看
+![查看回退后的内容](http://upload-images.jianshu.io/upload_images/4191539-937a8e3d4787d008.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+可以看到，内容已经回退到上一个版本了。我们可以继续使用git log 来查看下历史记录信息，如下：
+![git log命令](http://upload-images.jianshu.io/upload_images/4191539-410cd44e25282534.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+我们看到 增加333333 内容我们没有看到了，但是现在我想回退到最新的版本，如：有333333的内容要如何恢复呢？`我们可以通过版本号回退，使用命令方法如下：
+git reset  –hard 版本号 ，但是现在的问题假如我已经关掉过一次命令行或者333内容的版本号我并不知道呢？要如何知道增加3333内容的版本号呢？可以通过如下命令即可获取到版本号：git reflog ` 
+演示如下：
