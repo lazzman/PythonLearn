@@ -7,6 +7,33 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "README.md",
+			"settings":
+			{
+				"buffer_size": 82,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Git_Learn/GitNB(NewBird)文档.md",
+			"settings":
+			{
+				"buffer_size": 1419,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/Elifer/Desktop/新建文本文档.txt",
+			"settings":
+			{
+				"buffer_size": 2,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -15,12 +42,48 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 354.0,
-		"last_filter": "pack ins",
+		"height": 375.0,
+		"last_filter": "",
 		"selected_items":
 		[
 			[
+				"pack i",
+				"Package Control: Install Package"
+			],
+			[
+				"pc ins",
+				"Package Control: Install Package"
+			],
+			[
+				"pc re",
+				"Package Control: Remove Package"
+			],
+			[
+				"pc in",
+				"Package Control: Install Package"
+			],
+			[
+				"pc r",
+				"Package Control: Remove Package"
+			],
+			[
+				"pc i",
+				"Package Control: Install Package"
+			],
+			[
+				"pac ins",
+				"Package Control: Install Package"
+			],
+			[
+				"pack re",
+				"Package Control: Remove Package"
+			],
+			[
 				"pack ins",
+				"Package Control: Install Package"
+			],
+			[
+				"packa",
 				"Package Control: List Packages"
 			],
 			[
@@ -100,7 +163,7 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 414.0
+		"width": 426.0
 	},
 	"console":
 	{
@@ -134,23 +197,44 @@
 	},
 	"expanded_folders":
 	[
-		"/D/elifer/Python/Python3Learn"
+		"/D/elifer/Python/Python3Learn",
+		"/D/elifer/Python/Python3Learn/Git_Learn",
+		"/D/elifer/Python/Python3Learn/Python_Learn01"
 	],
 	"file_history":
 	[
+		"/C/Users/Elifer/Desktop/新建文本文档.txt",
+		"/D/elifer/OtherSoftWare/Git/site/手把手教你使用Git - OPEN 开发经验库.html",
+		"/C/Users/Elifer/Desktop/工作账户密码.txt",
+		"/D/elifer/Java/Java_WorkSpace/GuoYuanOA/爱心捐赠新页面2016.12.29/修改说明.txt",
+		"/D/elifer/Markdown/workspace/Markdown常用语法练习.mdown",
+		"/D/elifer/Markdown/site/mahua-gh-pages/readme.md",
+		"/D/elifer/OtherSoftWare/Sublime Text Build 3126 x64/Data/Packages/OmniMarkupPreviewer/OmniMarkupPreviewer.sublime-settings",
+		"/D/elifer/OtherSoftWare/Sublime Text Build 3126 x64/Data/Packages/User/OmniMarkupPreviewer.sublime-settings",
+		"/D/elifer/Java/Java_WorkSpace/GuoYuanOA/爱心捐赠排行榜功能2016.12.29/修改说明.txt",
+		"/C/Users/Elifer/Desktop/ECharts 介绍.xlsx",
+		"/C/Users/Elifer/Desktop/phb.js",
+		"/D/elifer/Java/Java_WorkSpace/GuoYuanOA/个人中心、步数捐赠2016.12.02/补丁说明.txt",
+		"/D/elifer/Java/Java_WorkSpace/GuoYuanOA/个人中心、步数捐赠2016.12.02/修改说明.txt",
+		"/D/elifer/Java/Java_WorkSpace/GuoYuanOA/福卡黑市功能2016.12.26/修改说明.txt",
+		"/C/Users/Elifer/Desktop/revision.diff",
+		"/C/Users/Elifer/Desktop/工作/殷豪12月代码统计.txt",
+		"/C/Users/Elifer/Desktop/工作/殷豪11月代码统计.txt",
+		"/C/Users/Elifer/Desktop/changeLog.txt",
+		"/D/elifer/OtherSoftWare/Sublime Text Build 3126 x64/Data/Packages/OmniMarkupPreviewer/README.md",
+		"/D/elifer/OtherSoftWare/Sublime Text Build 3126 x64/Data/Packages/PlainTasks/messages/Tutorial.todo",
+		"/D/elifer/OtherSoftWare/Sublime Text Build 3126 x64/Data/Packages/User/MarkdownPreview.sublime-settings",
+		"/D/elifer/Python/Python3Learn/Git_Learn/GitNB(NewBird)文档.md",
+		"/D/elifer/OtherSoftWare/Sublime Text Build 3126 x64/Data/Packages/Markdown Preview/MarkdownPreview.sublime-settings",
 		"/D/elifer/Python/Python3Learn/README.md",
 		"/D/elifer/OtherSoftWare/Sublime Text Build 3126 x64/Data/Packages/Default/Preferences.sublime-settings",
 		"/D/elifer/OtherSoftWare/Sublime Text Build 3126 x64/Data/Packages/User/Preferences.sublime-settings",
 		"/D/elifer/OtherSoftWare/Sublime Text Build 3126 x64/Data/Packages/MarkdownEditing/Default (Windows).sublime-keymap",
-		"/D/elifer/Markdown/workspace/Markdown常用语法练习.mdown",
 		"/D/elifer/OtherSoftWare/Sublime Text Build 3126 x64/Data/Packages/Terminal/Default (Windows).sublime-keymap",
-		"/D/elifer/Java/Java_WorkSpace/GuoYuanOA/福卡黑市功能2016.12.26/修改说明.txt",
 		"/D/elifer/Java/Java_WorkSpace/GuoYuanOA/福卡黑市功能2016.12.26/fontsell.sql",
 		"/D/elifer/Python/Python3Learn/.git/config",
 		"/D/elifer/Python/Python_WorkSpace/Python_Learn01/Function_Demo.py",
 		"/D/elifer/Python/Python_WorkSpace/Python_Learn01/List_Demo.py",
-		"/C/Users/Elifer/Desktop/新建文本文档.txt",
-		"/C/Users/Elifer/Desktop/工作账户密码.txt",
 		"/C/Users/Elifer/Desktop/OA中redisKV统计.txt",
 		"/D/elifer/Java/Java_WorkSpace/GuoYuanOA/WebRoot/WEB-INF/classes/sqlMapConfig.xml",
 		"/C/Users/Elifer/Desktop/Function_Demo.py",
@@ -161,7 +245,7 @@
 	],
 	"find":
 	{
-		"height": 0.0
+		"height": 23.0
 	},
 	"find_in_files":
 	{
@@ -175,31 +259,126 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"未知",
+			"为知",
+			"资源文件：",
+			"192路镁脦帽脝梅",
+			"(^[^+{1}].*\\r\\n)|(^[+]\\s*\\r\\n)"
 		],
 		"highlight": true,
 		"in_selection": false,
-		"preserve_case": false,
-		"regex": false,
+		"preserve_case": true,
+		"regex": true,
 		"replace_history":
 		[
+			""
 		],
 		"reverse": false,
 		"show_context": true,
 		"use_buffer2": true,
 		"whole_word": false,
-		"wrap": true
+		"wrap": false
 	},
 	"groups":
 	[
 		{
+			"selected": 2,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "README.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 82,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								82,
+								82
+							]
+						],
+						"settings":
+						{
+							"is_init_dirty_state": false,
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/Markdown/Markdown.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "Git_Learn/GitNB(NewBird)文档.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1419,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1419,
+								1419
+							]
+						],
+						"settings":
+						{
+							"is_init_dirty_state": false,
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/Markdown/Markdown.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 360.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/C/Users/Elifer/Desktop/新建文本文档.txt",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2,
+								2
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
 			]
 		}
 	],
 	"incremental_find":
 	{
-		"height": 0.0
+		"height": 23.0
 	},
 	"input":
 	{
@@ -248,7 +427,7 @@
 	"project": "project.sublime-project",
 	"replace":
 	{
-		"height": 0.0
+		"height": 42.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -286,7 +465,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 153.0,
+	"side_bar_width": 230.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
