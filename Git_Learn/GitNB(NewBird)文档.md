@@ -22,7 +22,7 @@
 > 当我们初始化一个仓库后，.git目录下的config文件存储了我们的配置信息，例如github仓库的url。
 
 # 5.开始使用
-> #### 一.创建版本库
+> #### 一：创建版本库
 >     什么是版本库？版本库又名仓库，英文名repository,你可以简单的理解一个目录，这个目录里面的所有文件都可以被Git管理起来，每个文件的修改，删除，Git都能跟踪，以便任何时刻都可以追踪历史，或者在将来某个时刻还可以将文件"还原"。
 
 > **这里分两种情况：**
@@ -53,7 +53,7 @@
 　　知道了对readme.txt文件做了什么修改后，我们可以放心的提交到仓库了，提交修改和提交文件是一样的2步(第一步是` git add ` 第二步是：` git commit`)。如下：
 ![git commit命令](http://upload-images.jianshu.io/upload_images/4191539-da488156c3a7df86.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-> #### 二.版本回退
+> #### 二：版本回退
 >> 　　如上，我们已经学会了修改文件，现在我继续对readme.txt文件进行修改，再增加一行内容为33333333333333.继续执行命令如下：
 ![git add 与 git commit命令](http://upload-images.jianshu.io/upload_images/4191539-f18ed29c27bb3666.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 　　现在我已经对readme.txt文件做了三次修改了，那么我现在想查看下历史记录，如何查呢？
