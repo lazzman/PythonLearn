@@ -145,15 +145,28 @@
 　　把本地库的内容推送到远程，使用` git push`命令，实际上是把当前分支master推送到远程。
 　　由于远程库是空的，我们第一次推送master分支时，加上了 –u参数，Git不但会把本地的master分支内容推送的远程新的master分支，还会把本地的master分支和远程的master分支关联起来， 在以后的推送或者拉取时就可以简化命令。推送成功后，可以立刻在github页面中看到远程库的内容已经和本地一模一样了，上面的要输入github的用 户名和密码如下所示： 
 ![git push](http://upload-images.jianshu.io/upload_images/4191539-9f620964e5bc3b18.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-　　从现在起，只要本地作了提交，就可以通过如下命令：
-` git push origin master`
-把本地master分支的最新修改推送到github上了，现在你就拥有了真正的分布式版本库了。
+　　从现在起，只要本地作了提交，就可以通过如下命令：` git push origin master`把本地master分支的最新修改推送到github上了，现在你就拥有了真正的分布式版本库了。
 >> ** 2.从远程库克隆：**
-上面我们了解了先有本地库，后有远程库时候，如何关联远程库。
+　　上面我们了解了先有本地库，后有远程库时候，如何关联远程库。
 现在我们想，假如远程库有新的内容了，我想克隆到本地来 如何克隆呢？
 首先，登录github，创建一个新的仓库，名字叫testgit2.如下： 
+![创建新的github远程版本库](http://upload-images.jianshu.io/upload_images/4191539-ece055f12f169d1a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+　　如下，我们看到： 
+![建好的版本库](http://upload-images.jianshu.io/upload_images/4191539-d68c5be50963a9f5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+　　现在，远程库已经准备好了，下一步是使用命令`git clone`克隆一个本地库了。如下所示： 
+![git clone](http://upload-images.jianshu.io/upload_images/4191539-89baabca4b0d2299.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+　　接着在我本地目录下 生成testgit2目录了，如下所示： 
+![本地clone下来的版本库](http://upload-images.jianshu.io/upload_images/4191539-cab8357707b59855.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-
-
+> #### 六：创建与合并分支
+　　在版本回填退里，你已经知道，每次提交，Git都把它们串成一条时间线，这条时间线就是一个分支。截止到目前，只有一条时间线，在Git里，这个分支叫主 分支，即master分支。HEAD严格来说不是指向提交，而是指向master，master才是指向提交的，所以，HEAD指向的就是当前分支。 
+　　首先，我们来创建dev分支，然后切换到dev分支上。如下操作： 
+![创建并且换分支](http://upload-images.jianshu.io/upload_images/4191539-3a7aa26c48a69c9b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+　　`git checkout` 命令加上 –b参数表示创建并切换，相当于如下2条命令
+　　`git branch dev`
+　　`git checkout dev`
+　　`git branch查看分支`，会列出所有的分支，当前分支前面会添加一个星号。
+　　然后我们在dev分支上继续做demo，比如我们现在在readme.txt再增加一行 7777777777777，首先我们先来查看下readme.txt内容，接着添加内容77777777，如下： 
+![切换分支提交修改](http://upload-images.jianshu.io/upload_images/4191539-d120dd8eba2de117.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 
