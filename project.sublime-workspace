@@ -20,16 +20,16 @@
 			"file": "Git_Learn/GitNB(NewBird)文档.md",
 			"settings":
 			{
-				"buffer_size": 1419,
+				"buffer_size": 9487,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "/C/Users/Elifer/Desktop/新建文本文档.txt",
+			"file": "Markdown_Learn/Markdown常用语法.md",
 			"settings":
 			{
-				"buffer_size": 2,
+				"buffer_size": 1149,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -42,10 +42,58 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 375.0,
-		"last_filter": "",
+		"height": 237.0,
+		"last_filter": "markdown",
 		"selected_items":
 		[
+			[
+				"markdown",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"pack ins",
+				"Package Control: Install Package"
+			],
+			[
+				"pack re",
+				"Package Control: Remove Package"
+			],
+			[
+				"mar",
+				"MarkdownLivePreview: Toggle"
+			],
+			[
+				"pack inst",
+				"Package Control: Install Package"
+			],
+			[
+				"mkd",
+				"Set Syntax: Markdown"
+			],
+			[
+				"mp",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"onip",
+				"OmniMarkupPreviewer: Preview Current Markup in Browser"
+			],
+			[
+				"oni",
+				"OmniMarkupPreviewer: Empty Cache"
+			],
+			[
+				"ssm",
+				"Set Syntax: Markdown"
+			],
+			[
+				"Package Control: ins",
+				"Package Control: Install Package"
+			],
+			[
+				"git sta",
+				"Git: Status"
+			],
 			[
 				"pack i",
 				"Package Control: Install Package"
@@ -75,24 +123,12 @@
 				"Package Control: Install Package"
 			],
 			[
-				"pack re",
-				"Package Control: Remove Package"
-			],
-			[
-				"pack ins",
-				"Package Control: Install Package"
-			],
-			[
 				"packa",
 				"Package Control: List Packages"
 			],
 			[
 				"pack rem",
 				"Package Control: Remove Package"
-			],
-			[
-				"pack inst",
-				"Package Control: List Packages"
 			],
 			[
 				"package re",
@@ -119,10 +155,6 @@
 				"Package Control: Install Package"
 			],
 			[
-				"git sta",
-				"Git: Status"
-			],
-			[
 				"git add",
 				"Git: Quick Add"
 			],
@@ -147,10 +179,6 @@
 				"Git: Status"
 			],
 			[
-				"Package Control: ins",
-				"Package Control: Install Package"
-			],
-			[
 				"Package Control: ",
 				"Package Control: List Packages"
 			],
@@ -163,7 +191,7 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 426.0
+		"width": 386.0
 	},
 	"console":
 	{
@@ -199,17 +227,36 @@
 	[
 		"/D/elifer/Python/Python3Learn",
 		"/D/elifer/Python/Python3Learn/Git_Learn",
+		"/D/elifer/Python/Python3Learn/Markdown_Learn",
 		"/D/elifer/Python/Python3Learn/Python_Learn01"
 	],
 	"file_history":
 	[
+		"/D/elifer/OtherSoftWare/Sublime Text Build 3126 x64/Data/Packages/User/MarkdownLivePreview.css",
+		"/D/elifer/OtherSoftWare/Sublime Text Build 3126 x64/sublime添加右键打开功能(导入前请编辑路径).reg",
+		"/D/elifer/OtherSoftWare/Sublime Text Build 3126 x64/Data/Packages/User/MarkdownPreview.sublime-settings",
+		"/D/elifer/OtherSoftWare/Sublime Text Build 3126 x64/Data/Packages/Markdown Preview/MarkdownPreview.sublime-settings",
+		"/D/elifer/OtherSoftWare/Sublime Text Build 3126 x64/Data/Packages/OmniMarkupPreviewer/OmniMarkupPreviewer.sublime-settings",
+		"/D/elifer/Python/Python3Learn/.git/config",
+		"/D/elifer/Python/Python3Learn/.git/logs/refs/heads/master",
+		"/D/elifer/Python/Python3Learn/.git/description",
+		"/D/elifer/Python/Python3Learn/.git/refs/heads/master",
+		"/D/elifer/Python/Python3Learn/.git/HEAD",
+		"/C/Users/Elifer/Desktop/工作账户密码.txt",
+		"/D/unknow.txt",
+		"/C/Users/Elifer/Desktop/Cache/工作/JavaScript/Component/Three.js/介绍.md",
+		"/D/elifer/JavaScript/Three.js/介绍.md",
+		"/C/Users/Elifer/Documents/Tencent Files/173966404/FileRecv/机器人指令文档.txt",
+		"/D/elifer/Markdown/workspace/Markdown常用语法练习.md",
+		"/C/Users/Elifer/Desktop/utf-8.txt",
+		"/C/Users/Elifer/Desktop/utf-8 (3) .txt",
+		"/C/Users/Elifer/Desktop/utf-8 (2).txt",
+		"/C/Users/Elifer/Desktop/gbk.txt",
 		"/C/Users/Elifer/Desktop/新建文本文档.txt",
 		"/D/elifer/OtherSoftWare/Git/site/手把手教你使用Git - OPEN 开发经验库.html",
-		"/C/Users/Elifer/Desktop/工作账户密码.txt",
 		"/D/elifer/Java/Java_WorkSpace/GuoYuanOA/爱心捐赠新页面2016.12.29/修改说明.txt",
 		"/D/elifer/Markdown/workspace/Markdown常用语法练习.mdown",
 		"/D/elifer/Markdown/site/mahua-gh-pages/readme.md",
-		"/D/elifer/OtherSoftWare/Sublime Text Build 3126 x64/Data/Packages/OmniMarkupPreviewer/OmniMarkupPreviewer.sublime-settings",
 		"/D/elifer/OtherSoftWare/Sublime Text Build 3126 x64/Data/Packages/User/OmniMarkupPreviewer.sublime-settings",
 		"/D/elifer/Java/Java_WorkSpace/GuoYuanOA/爱心捐赠排行榜功能2016.12.29/修改说明.txt",
 		"/C/Users/Elifer/Desktop/ECharts 介绍.xlsx",
@@ -223,16 +270,13 @@
 		"/C/Users/Elifer/Desktop/changeLog.txt",
 		"/D/elifer/OtherSoftWare/Sublime Text Build 3126 x64/Data/Packages/OmniMarkupPreviewer/README.md",
 		"/D/elifer/OtherSoftWare/Sublime Text Build 3126 x64/Data/Packages/PlainTasks/messages/Tutorial.todo",
-		"/D/elifer/OtherSoftWare/Sublime Text Build 3126 x64/Data/Packages/User/MarkdownPreview.sublime-settings",
 		"/D/elifer/Python/Python3Learn/Git_Learn/GitNB(NewBird)文档.md",
-		"/D/elifer/OtherSoftWare/Sublime Text Build 3126 x64/Data/Packages/Markdown Preview/MarkdownPreview.sublime-settings",
 		"/D/elifer/Python/Python3Learn/README.md",
 		"/D/elifer/OtherSoftWare/Sublime Text Build 3126 x64/Data/Packages/Default/Preferences.sublime-settings",
 		"/D/elifer/OtherSoftWare/Sublime Text Build 3126 x64/Data/Packages/User/Preferences.sublime-settings",
 		"/D/elifer/OtherSoftWare/Sublime Text Build 3126 x64/Data/Packages/MarkdownEditing/Default (Windows).sublime-keymap",
 		"/D/elifer/OtherSoftWare/Sublime Text Build 3126 x64/Data/Packages/Terminal/Default (Windows).sublime-keymap",
 		"/D/elifer/Java/Java_WorkSpace/GuoYuanOA/福卡黑市功能2016.12.26/fontsell.sql",
-		"/D/elifer/Python/Python3Learn/.git/config",
 		"/D/elifer/Python/Python_WorkSpace/Python_Learn01/Function_Demo.py",
 		"/D/elifer/Python/Python_WorkSpace/Python_Learn01/List_Demo.py",
 		"/C/Users/Elifer/Desktop/OA中redisKV统计.txt",
@@ -259,6 +303,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"已经初始化了一个版本库，如",
 			"未知",
 			"为知",
 			"资源文件：",
@@ -282,7 +327,7 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -312,7 +357,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
@@ -321,56 +366,63 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1419,
+						"buffer_size": 9487,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1419,
-								1419
+								1416,
+								1416
+							]
+						],
+						"settings":
+						{
+							"is_init_dirty_state": false,
+							"markdown_preview_enabled": true,
+							"origin_encoding": "UTF-8",
+							"parser": "github",
+							"syntax": "Packages/Markdown/Markdown.sublime-syntax",
+							"target": "disk"
+						},
+						"translation.x": 0.0,
+						"translation.y": 90.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "Markdown_Learn/Markdown常用语法.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1149,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								280,
+								280
 							]
 						],
 						"settings":
 						{
 							"is_init_dirty_state": false,
 							"origin_encoding": "UTF-8",
-							"syntax": "Packages/Markdown/Markdown.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 360.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "/C/Users/Elifer/Desktop/新建文本文档.txt",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2,
-								2
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
+							"parser": "github",
+							"syntax": "Packages/Markdown/Markdown.sublime-syntax",
+							"target": "browser"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 2,
 					"type": "text"
 				}
 			]
@@ -422,6 +474,10 @@
 	"output.git-remote":
 	{
 		"height": 100.0
+	},
+	"output.markdown":
+	{
+		"height": 102.0
 	},
 	"pinned_build_system": "",
 	"project": "project.sublime-project",
