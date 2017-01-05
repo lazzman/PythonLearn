@@ -168,5 +168,31 @@
 　　`git branch查看分支`，会列出所有的分支，当前分支前面会添加一个星号。
 　　然后我们在dev分支上继续做demo，比如我们现在在readme.txt再增加一行 7777777777777，首先我们先来查看下readme.txt内容，接着添加内容77777777，如下： 
 ![切换分支提交修改](http://upload-images.jianshu.io/upload_images/4191539-d120dd8eba2de117.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+　　现在dev分支工作已完成，现在我们切换到主分支master上，继续查看readme.txt内容如下： 
+![切换到主分支](http://upload-images.jianshu.io/upload_images/4191539-8ef818bf71809b08.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+　　现在我们可以把dev分支上的内容合并到分支master上了，可以在master分支上，使用如下命令 `git merge dev` 如下所示： 
+![git merge dev](http://upload-images.jianshu.io/upload_images/4191539-d9686ac24671518d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+　　`git merge`命令用于合并指定分支到当前分支上，合并后，再查看readme.txt内容，可以看到，和dev分支最新提交的是完全一样的。
+　　注意到上面的*Fast-forward*信息，Git告诉我们，这次合并是“快进模式”，也就是直接把master指向dev的当前提交，所以合并速度非常快。
+　　合并完成后，我们可以接着删除dev分支了，操作如下：
+![git branch -d dev](http://upload-images.jianshu.io/upload_images/4191539-033817877dd845cd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+总结创建与合并分支命令如下：
+**
+　查看分支：`git branch`
+　创建分支：`git branch name`
+　切换分支：`git checkout name`
+　创建+切换分支：`git checkout –b name`
+　合并某分支到当前分支：`git merge name`
+　删除分支：`git branch –d name`
+**
+
+
+
+
+
+
+
+
+
 
 
