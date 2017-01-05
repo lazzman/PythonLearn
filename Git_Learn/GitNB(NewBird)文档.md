@@ -93,7 +93,7 @@
 ![git commit](http://upload-images.jianshu.io/upload_images/4191539-15c0914c2c003aee.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 > #### 四：Git撤销修改和删除文件操作
->> ** 一：撤销修改：**
+>> **1：撤销修改：**
 　　比如我现在在readme.txt文件里面增加一行 内容为555555555555，我们先通过命令查看如下： 
 ![查看文本内容](http://upload-images.jianshu.io/upload_images/4191539-261e127dc6913bba.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 　　在我未提交之前，我发现添加5555555555555内容有误，所以我得马上恢复以前的版本，现在我可以有如下几种方法可以做修改：
@@ -108,7 +108,7 @@
 　　对于第二种情况，我想我们继续做demo来看下，假如现在我对readme.txt添加一行 内容为6666666666666，我` git add`增加到暂存区后，接着添加内容7777777，我想通过撤销命令让其回到暂存区后的状态。如下所示： 
 ![Demo](http://upload-images.jianshu.io/upload_images/4191539-8ff20122afbc8037.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 >> **注意：**命令` git checkout -- readme.txt `中的 -- 很重要，如果没有 -- 的话，那么命令变成创建分支了。
->> **二：删除文件：**
+>> **2：删除文件：**
 　　假如我现在版本库testgit目录添加一个文件b.txt,然后提交。如下： 
 ![Demo](http://upload-images.jianshu.io/upload_images/4191539-c5e63da409fd66d1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 　　如上：一般情况下，可以直接在文件目录中把文件删了，或者使用如上rm命令：rm b.txt ，如果我想彻底从版本库中删掉了此文件的话，可以再执行commit命令 提交掉，现在目录是这样的：
@@ -185,14 +185,49 @@
 　合并某分支到当前分支：`git merge name`
 　删除分支：`git branch –d name`
 **
+>> **1.解决合并冲突：**
+　　下面我们还是一步一步来，先新建一个新分支，比如名字叫fenzhi1，在readme.txt添加一行内容8888888，然后提交，如下所示： 
+![创建新分支](http://upload-images.jianshu.io/upload_images/4191539-fd0c9fb851857509.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+　　同样，我们现在切换到master分支上来，也在最后一行添加内容，内容为99999999，如下所示：
+![切换到主分支](http://upload-images.jianshu.io/upload_images/4191539-c5978a25279fb930.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240) 
+　　现在我们需要在master分支上来合并fenzhi1，如下操作： 
+![合并分支](http://upload-images.jianshu.io/upload_images/4191539-f7707335e80ca4ba.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+　　Git用`<<<<<<<，=======，>>>>>>>`标记出不同分支的内容，其中`<<<HEAD`是指主分支修改的内容，`>>>>>fenzhi1` 是指fenzhi1上修改的内容，我们可以修改文本如下后保存： 
+![Paste_Image.png](http://upload-images.jianshu.io/upload_images/4191539-c03bdc9c5b0206d5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+　　如果我想查看分支合并的情况的话，需要使用命令 `git log`命令行演示如下： 
+![git log](http://upload-images.jianshu.io/upload_images/4191539-0c478adbd769a5d9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+>> **2.分支管理策略：**
+　　通常合并分支时，git一般使用”Fast forward”模式，在这种模式下，删除分支后，会丢掉分支信息，现在我们来使用带参数`--no-ff`来禁用”Fast forward”模式。首先我们来做demo演示下：
+1. 创建一个dev分支。
+2. 修改readme.txt内容。
+3. 添加到暂存区。
+4. 切换回主分支(master)。
+5. 合并dev分支，使用命令 git merge –no-ff  -m “注释” dev
+6. 查看历史记录
+截图如下： 
+![Demo](http://upload-images.jianshu.io/upload_images/4191539-7b5345e62562e662.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+**分支策略：**首先master主分支应该是非常稳定的，也就是用来发布新版本，一般情况下不允许在上面干活，干活一般情况下在新建的dev分支上干活，干完后，比如上要发布，或者说dev分支代码稳定后可以合并到主分支master上来。
 
+> #### 七：bug分支
+　　在开发中，会经常碰到bug问题，那么有了bug就需要修复，在Git中，分支是很强大的，每个bug都可以通过一个临时分支来修复，修复完成后，合并分支，然后将临时的分支删除掉。
+　　比如我在开发中接到一个404 bug时候，我们可以创建一个404分支来修复它，但是，当前的dev分支上的工作还没有提交。比如如下： 
+![git status](http://upload-images.jianshu.io/upload_images/4191539-1cfbed39b5bfcb44.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+　　并不是我不想提交，而是工作进行到一半时候，我们还无法提交，比如我这个分支bug要2天完成，但是我issue-404 bug需要5个小时内完成。怎么办呢？还好，Git还提供了一个`stash`功能，可以把当前工作现场 ”隐藏起来”，等以后恢复现场后继续工作。如下：
+![git stash](http://upload-images.jianshu.io/upload_images/4191539-b641d15c4ae7c7e1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+　　所以现在我可以通过创建issue-404分支来修复bug了。
+　　首先我们要确定在那个分支上修复bug，比如我现在是在主分支master上来修复的，现在我要在master分支上创建一个临时分支，演示如下：
+![在分支上修复bug](http://upload-images.jianshu.io/upload_images/4191539-e0e0b8b448fcb91d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+　　修复完成后，切换到master分支上，并完成合并，最后删除issue-404分支。演示如下： 
+![合并分支并删除分支](http://upload-images.jianshu.io/upload_images/4191539-f74f808712feb92f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+　　现在，我们回到dev分支上干活了。
+![切回dev分支](http://upload-images.jianshu.io/upload_images/4191539-6dafdbff41686145.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+　　工作区是干净的，那么我们工作现场去哪里呢？我们可以使用命令`git stash list`来查看下。如下： 
+![git stash list](http://upload-images.jianshu.io/upload_images/4191539-904054f654c4185f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+　　工作现场还在，Git把stash内容存在某个地方了，但是需要恢复一下，可以使用如下2个方法：
+　　`git stash apply`恢复，恢复后，stash内容并不删除，你需要使用命令git stash drop来删除。
+　　另一种方式是使用`git stash pop`,恢复的同时把stash内容也删除了。
+演示如下：
+![从stash中恢复数据](http://upload-images.jianshu.io/upload_images/4191539-6ee0195df6d445b4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-
-
-
-
-
-
-
-
+> #### 八：多人协作
 
