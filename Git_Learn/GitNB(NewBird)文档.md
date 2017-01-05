@@ -131,3 +131,28 @@
 ![Github配置](http://upload-images.jianshu.io/upload_images/4191539-3fea719469ba4544.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 　　点击 Add Key，你就应该可以看到已经添加的key。
 ![Github配置](http://upload-images.jianshu.io/upload_images/4191539-f20cec151ad9088e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+>> ** 1.添加远程库：**
+　　现在的情景是：我们已经在本地创建了一个Git仓库后，又想在github创建一个Git仓库，并且希望这两个仓库进行远程同步，这样github的仓库可以作为备份，又可以其他人通过该仓库来协作。
+　　首先，登录github上，然后在右上角找到“create a new repo”创建一个新的仓库。如下： 
+![Github](http://upload-images.jianshu.io/upload_images/4191539-2ac66bca42e2dce5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+　　在Repository name填入testgit，其他保持默认设置，点击“Create repository”按钮，就成功地创建了一个新的Git仓库：
+![github](http://upload-images.jianshu.io/upload_images/4191539-b15adcb2cb98c89f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+　　目前，在GitHub上的这个testgit仓库还是空的，GitHub告诉我们，可以从这个仓库克隆出新的仓库，也可以把一个已有的本地仓库与之关联，然后，把本地仓库的内容推送到GitHub仓库。
+　　现在，我们根据GitHub的提示，在本地的testgit仓库下运行命令：
+` git remote add origin https://github.com/tugenhua0707/testgit.git`
+　　如下所示： 
+![将本地版本库与Github远程库关联](http://upload-images.jianshu.io/upload_images/4191539-32b29b5e7b253112.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+　　把本地库的内容推送到远程，使用` git push`命令，实际上是把当前分支master推送到远程。
+　　由于远程库是空的，我们第一次推送master分支时，加上了 –u参数，Git不但会把本地的master分支内容推送的远程新的master分支，还会把本地的master分支和远程的master分支关联起来， 在以后的推送或者拉取时就可以简化命令。推送成功后，可以立刻在github页面中看到远程库的内容已经和本地一模一样了，上面的要输入github的用 户名和密码如下所示： 
+![git push](http://upload-images.jianshu.io/upload_images/4191539-9f620964e5bc3b18.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+　　从现在起，只要本地作了提交，就可以通过如下命令：
+` git push origin master`
+把本地master分支的最新修改推送到github上了，现在你就拥有了真正的分布式版本库了。
+>> ** 2.从远程库克隆：**
+上面我们了解了先有本地库，后有远程库时候，如何关联远程库。
+现在我们想，假如远程库有新的内容了，我想克隆到本地来 如何克隆呢？
+首先，登录github，创建一个新的仓库，名字叫testgit2.如下： 
+
+
+
+
