@@ -10,11 +10,13 @@
 > - 下载msysgit
 - 默认安装即可
 - 安装完成后打开开始菜单中"Git –> Git Bash"，如下:
+
 > ![](http://static.open-open.com/lib/uploadImg/20141027/20141027155917_719.jpg)
 > - 弹出Git Bash黑窗口，输入git version 成功看到git版本信息说明可以正常使用了
 
 # 4.windows安装Git完成后必须注意的设置
 > ![](http://static.open-open.com/lib/uploadImg/20141027/20141027155918_624.jpg)
+
 > 　　注意：git config  –global 参数，有了这个参数，表示你这台机器上所有的Git仓库都会使用这个配置，当然你也可以对某个仓库指定的不同的用户名和邮箱。
 > 　　当我们初始化一个仓库后，.git目录下的config文件存储了我们的配置信息，例如github仓库的url。
 
