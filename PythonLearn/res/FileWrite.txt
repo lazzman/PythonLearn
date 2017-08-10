@@ -1,0 +1,2 @@
+fileWrite操作成功！
+fileAppend操作成功！
