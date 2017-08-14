@@ -1,7 +1,9 @@
-# Python3Learn
+# PythonLearn
 Git的学习
 * Git_Learn
 
-Python3的学习历程
-* Python_learn01
-* Python_learn02
+Python2的学习历程
+* Python_learn
+
+Markdown的学习
+* Markdown
