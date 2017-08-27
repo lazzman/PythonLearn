@@ -20,7 +20,7 @@ def main():
     except StopIteration as s:
         print(s.value) # => '3 chars'
 
-    # using yield from in main() will change main() from function to generator:
+    # using yield from in main() will change main() from 函数 to generator:
     # r = yield from each_ascii('hello')
 
     for ch in yield_from('hello'):
