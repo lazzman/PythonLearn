@@ -25,7 +25,7 @@ def info(title):
     print 'process id:', os.getpid()
 
 def f(name):
-    info('函数 f')
+    info('2. 函数 f')
     print 'hello', name
 
 if __name__ == '__main__':
