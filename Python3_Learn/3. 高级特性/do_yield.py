@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+# 生成器：返回字符串每个字符的Unicode码值
 def each_ascii(s):
     for ch in s:
         yield ord(ch)
-    return '%s chars' % len(s)
+    return "len('"+ s + "')= %s" % len(s)
 
 def yield_from(s):
     r = yield from each_ascii(s)
