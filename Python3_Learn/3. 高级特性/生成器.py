@@ -37,6 +37,7 @@ def fib(max):
 
 '''
 把函数改成generator后，我们基本上从来不会用next()来获取下一个返回值，而是直接使用for循环来迭代。
+Python的for循环本质上就是通过不断调用next()函数实现的。
 '''
 f = fib(10)
 print('fib(10):', f)
