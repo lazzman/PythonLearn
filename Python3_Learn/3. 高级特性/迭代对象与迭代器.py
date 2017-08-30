@@ -41,15 +41,18 @@ def g():
 可以使用isinstance()判断一个对象是否是Iterable对象：
 '''
 
-# 列表可迭代
+# 列表是可迭代对象
 print('Iterable? [1, 2, 3]:', isinstance([1, 2, 3], Iterable))
-# 字符串可迭代
+# 字符串是可迭代对象
 print('Iterable? \'abc\':', isinstance('abc', Iterable))
-# 整数不可迭代
+# 整数不是可迭代对象
 print('Iterable? 123:', isinstance(123, Iterable))
-# 生成器可迭代
+# 生成器是可迭代对象
 print('Iterable? g():', isinstance(g(), Iterable))
 
+'''
+
+'''
 print('Iterator? [1, 2, 3]:', isinstance([1, 2, 3], Iterator))
 print('Iterator? iter([1, 2, 3]):', isinstance(iter([1, 2, 3]), Iterator))
 print('Iterator? \'abc\':', isinstance('abc', Iterator))
