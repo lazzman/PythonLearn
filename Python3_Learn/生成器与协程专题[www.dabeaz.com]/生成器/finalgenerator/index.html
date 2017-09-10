@@ -1,0 +1,188 @@
+<html>
+<head>
+<title>Generators: The Final Frontier</title>
+</head>
+
+<body bgcolor="#ffffff">
+
+<table width=800>
+<tr><td>
+
+<span style="float:right; border-width:1; border-style:solid;">
+<table bgcolor="#c0e0ff" cellspacing=10><tr><td>
+  <font size=-1>
+<b><font color="#0000ff">Advanced Python Training</font></b><br>
+In Chicago with David Beazley<br>
+
+  <p>
+<li><a href="http://www.dabeaz.com/chicago/practical.html">Practical
+  Python Programming</a></li>
+<li><a href="http://www.dabeaz.com/chicago/mastery.html">Advanced
+  Python Mastery</a></li>
+<li><a href="http://www.dabeaz.com/chicago/compiler.html">Write a Compiler</a></li>
+  </p>
+  <p>
+  Click <a href="http://www.dabeaz.com/chicago/index.html">here</a> for
+  more details!
+</p>
+</font>
+</p>
+</td>
+</tr>
+</table>
+</span>
+
+<h2>Generators: The Final Frontier</h2>
+
+<b>Copyright (C) 2014</b><br>
+<b>David M. Beazley</b><br>
+<b><a href="http://www.dabeaz.com">http://www.dabeaz.com</a></b><br>
+
+<p>
+Presented at PyCon'14, April 10, 2014, Montreal.
+
+<h2>Introduction</h2>
+
+<p>
+This tutorial discusses advanced uses of using generators to alter program control flow,
+explode brains, and exponentially increase your job security.  Topics include context managers, 
+inlined futures, concurrency, asyncio, actors, compilers, and more.   
+</p>
+
+<ul>
+<li><a href="FinalGenerator.pdf">Presentation Slides</a> (PDF)
+</ul>
+
+<h2>Support Data Files</h2>
+
+The following file contains some supporting data files that are used by the various
+code samples.  Download this to your machine to work the examples that follow.
+
+<ul>
+<li><a href="finalgenerator.zip">finalgenerator.zip</a>
+</ul>
+
+This download includes the presentation slides and all of the code sample below.
+
+<h2>Background Material</h2>
+
+<p>
+This tutorial is part 3 of a trilogy of tutorials involving generators and coroutines.  Although it
+stands on its own, you may want to review the first two parts to get the bigger picture:
+</p>
+
+<ul>
+<li><a href="http://www.dabeaz.com/generators">Generator Tricks for Systems Programmers</a>.  Presented at PyCon'08.</li>
+<li><a href="http://www.dabeaz.com/coroutines">A Curious Course on Coroutines and Concurrency</a>. Presented at PyCon'09.</li>
+</ul>
+
+<h2>Code Samples</h2>
+
+Here are various code samples that are used in the course.  You can
+cut and paste these to your own machine to try them out.  The order in
+which these are listed follow the course outline.   You'll need Python 3.4.
+
+<p>
+<b>Part 2 : And Now For Something Completely Different</b>
+
+<ul>
+<li><a href="cm.py">cm.py</a>. Sample implementation of context managers using generators.
+Similar to <tt>contextlib</tt> standard library.
+</ul>
+
+<b>Part 3 : Call me Maybe</b>
+
+<ul>
+<p>
+<li><a href="simplefuture.py">simplefuture.py</a>.  Simple example of concurrent futures.</li>
+</p>
+
+<p>
+<li><a href="inline1.py">inline1.py</a>.  First implementation of an inlined future generator.</li>
+</p>
+
+<p>
+<li><a href="inline2.py">inline2.py</a>. Inlined future with exception handling support.</li>
+</p>
+
+<p>
+<li><a href="inline_recursive.py">inline_recursive.py</a>. Inlined future with odd recursion.</li>
+</p>
+</ul>
+
+<p>
+<b>Part 4: Yield From Yield From Yield From Future</b>
+</p>
+
+<ul>
+<p>
+<li><a href="inline_puzzle.py">inline_puzzle.py</a>. Various attempts to make library functions.</li>
+</p>
+
+<p>
+<li><a href="inline_iter.py">inline_iter.py</a>. Near complete solution involving iterable Futures.</li>
+</p>
+
+<p>
+<li><a href="inline_future.py">inline_future.py</a>.  Final solution with tasks, inlined futures, proper result handling.</li>
+</p>
+
+<p>
+<li><a href="async1.py">async1.py</a>.  Simple example from asyncio library.</li>
+</p>
+
+<p>
+<li><a href="async2.py">async2.py</a>.  Echo server example from asyncio</li>
+</p>
+</ul>
+
+<p>
+<b>Part 5: GIL</b>
+</p>
+
+<ul>
+<p>
+<li><a href="fib1.py">fib1.py</a>.  Fibonacci numbers in a process pool and inlined futures.</li>
+</p>
+
+<p>
+<li><a href="fib2.py">fib2.py</a>.  Performance test, side-stepping the GIL (it works!)</li>
+</p>
+
+<p>
+<li><a href="fib3.py">fib3.py</a>.  Performance test with a different thread execution model. 
+</p>
+
+</ul>
+
+
+<p>
+<b>Part 6 : Fake it Until You Make It (Actors)</b>
+</p>
+
+<ul>
+<p><li><a href="actor1.py">actor1.py</a>.  Simple actor example.</li></p>
+
+<p><li><a href="actor2.py">actor2.py</a>. Recursive ping-pong (broken).</li></p>
+
+<p><li><a href="tactor.py">tactor.py</a>. Recursive ping-pong using threads.</li></p>
+
+<p><li><a href="actor3.py">actor3.py</a>. Recursive ping-pong with simple message queue and runner.</li></p>
+</ul>
+
+<p>
+<b>Part 7: A Terrifying Visitor</b>
+</p>
+
+<ul>
+<p><li><a href="compiler1.py">compiler1.py</a>. A simple compiler and tree traversal using the visitor pattern.</li></p>
+
+<p><li><a href="compiler2.py">compiler2.py</a>. Non-recursive tree traversal using generators (insane). </li></p>
+</ul>
+
+</td>
+</tr>
+</table>
+</body>
+</html>
+
