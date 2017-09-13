@@ -1,6 +1,6 @@
 # pipeline.py
 #
-# An example of setting up a processing pipeline with generators
+# An example of setting up a processing pipeline with generators_py2
 
 def grep(pattern,lines):
     for line in lines:

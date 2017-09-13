@@ -1,9 +1,8 @@
-# copipe.py
+# cobroadcast2.py
 #
-# A simple example showing how to hook up a pipeline with
-# coroutines.   To run this, you will need a log file.
-# Run the program logsim.py in the background to get a data
-# source.
+# An example of broadcasting a data stream onto multiple coroutine targets.
+# This example shows "fan-in"---a situation where multiple coroutines_py2
+# send to the same target.
 
 from coroutine import coroutine
 
@@ -21,7 +20,6 @@ def follow(thefile, target):
          target.send(line)
 
 # A filter.
-
 @coroutine
 def grep(pattern,target):
     while True:
@@ -30,16 +28,26 @@ def grep(pattern,target):
             target.send(line)    # Send to next stage
 
 # A sink.  A coroutine that receives data
-
 @coroutine
 def printer():
     while True:
          line = (yield)
          print line,
 
+# Broadcast a stream onto multiple targets
+@coroutine
+def broadcast(targets):
+    while True:
+        item = (yield)
+        for target in targets:
+            target.send(item)
+
 # Example use
 if __name__ == '__main__':
     f = open("access-log")
+    p = printer()
     follow(f,
-           grep('python',
-           printer()))
+       broadcast([grep('python',p),
+                  grep('ply',p),
+                  grep('swig',p)])
+           )

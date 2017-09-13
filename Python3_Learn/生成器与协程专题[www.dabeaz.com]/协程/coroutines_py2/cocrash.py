@@ -1,6 +1,6 @@
 # cocrash.py
 #
-# An example of hooking coroutines up in a way that might cause a potential
+# An example of hooking coroutines_py2 up in a way that might cause a potential
 # crash.   Basically, there are two threads feeding data into the
 # printer() coroutine.    
 

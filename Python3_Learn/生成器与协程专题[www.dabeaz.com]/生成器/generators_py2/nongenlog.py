@@ -1,7 +1,7 @@
 # nongenlog.py
 #
 # Sum up the number of bytes transferred in an Apache log file
-# using a simple for-loop.   We're not using generators here.
+# using a simple for-loop.   We're not using generators_py2 here.
 
 wwwlog = open("access-log")
 total = 0

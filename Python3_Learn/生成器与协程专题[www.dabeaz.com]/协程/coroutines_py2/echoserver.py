@@ -1,6 +1,6 @@
 # echoserver.py
 #
-# A concurrent echo server using coroutines
+# A concurrent echo server using coroutines_py2
 
 from pyos8 import *
 from socket import *

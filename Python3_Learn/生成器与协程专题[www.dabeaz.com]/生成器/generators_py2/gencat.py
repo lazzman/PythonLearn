@@ -1,6 +1,6 @@
 # gencat.py
 #
-# Concatenate multiple generators into a single sequence
+# Concatenate multiple generators_py2 into a single sequence
 
 def gen_cat(sources):
     for s in sources:

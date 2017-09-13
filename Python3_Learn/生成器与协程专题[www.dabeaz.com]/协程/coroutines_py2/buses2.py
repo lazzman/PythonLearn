@@ -1,6 +1,6 @@
 # buses.py
 #
-# An example of setting up an event handling pipeline with coroutines
+# An example of setting up an event handling pipeline with coroutines_py2
 # and XML parsing.
 
 from coroutine import *

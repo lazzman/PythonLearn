@@ -65,7 +65,7 @@ def parse(toks):
             raise SyntaxError()
     return expr()
 
-# ---- Nonrecursive visitor pattern using generators
+# ---- Nonrecursive visitor pattern using generators_py2
 
 class NodeVisitor:
     def visit(self, node):

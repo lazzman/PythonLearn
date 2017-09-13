@@ -1,6 +1,6 @@
 # bytesgen.py
 #
-# An example of chaining together different generators into a processing
+# An example of chaining together different generators_py2 into a processing
 # pipeline.    
 
 from genfind import *

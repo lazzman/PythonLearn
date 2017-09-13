@@ -1,6 +1,6 @@
 # trampoline.py
 #
-# A simple of example of trampoling between coroutines
+# A simple of example of trampoling between coroutines_py2
 
 # A subroutine
 def add(x,y):

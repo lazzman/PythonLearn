@@ -29,6 +29,7 @@ def g():
     yield 2
     yield 3
 
+
 '''
 我们已经知道，可以直接作用于for循环的数据类型有以下几种：
 
@@ -129,5 +130,12 @@ for x, y in [(1, 1), (2, 4), (3, 9)]:
 集合数据类型如list、dict、str等是Iterable但不是Iterator，不过可以通过iter()函数获得一个Iterator对象。
 
 Python的for循环本质上就是通过不断调用next()函数实现的
+
+对于for迭代的iterable对象其实是又封装了一层enumerate(iterator)：
+    for i in [1,2,3]:
+        pass
+    等价于：
+    for i in enumerate([1,2,3]):
+        pass
 
 '''

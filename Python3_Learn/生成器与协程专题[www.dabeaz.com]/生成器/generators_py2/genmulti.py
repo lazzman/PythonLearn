@@ -1,6 +1,6 @@
 # genmulti.py
 #
-# Generate items from multiple generators (multiplex)
+# Generate items from multiple generators_py2 (multiplex)
 #
 
 import Queue, threading

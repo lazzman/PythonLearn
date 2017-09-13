@@ -1,7 +1,7 @@
 # cofollow.py
 #
 # A simple example showing how to hook up a pipeline with
-# coroutines.   To run this, you will need a log file.
+# coroutines_py2.   To run this, you will need a log file.
 # Run the program logsim.py in the background to get a data
 # source.
 
