@@ -3,8 +3,14 @@
 # 计算在Apache日志文件中传输的总字节数
 # 使用简单的for-loop计算Apache服务器日志中传输的字节数。不使用生成器。
 
+import time
+
+# 计时
+time_start = time.clock()
+
 wwwlog = open("access-log")
 total = 0
+
 for line in wwwlog:
     '''
     语法
@@ -19,4 +25,8 @@ for line in wwwlog:
     if bytestr != '-':
         total += int(bytestr)
 
-print("共计 %d Bytes" % (total,))
+# 计时
+time_end = time.clock()
+time_cost = time_end - time_start
+
+print("共计 %d Bytes | 共计耗时 %s s" % (total, time_cost))
