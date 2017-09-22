@@ -122,6 +122,8 @@ print('iter [(1, 1), (2, 4), (3, 9)]:')
 for x, y in [(1, 1), (2, 4), (3, 9)]:
     print(x, y)
 
+list
+
 '''
 凡是可作用于for循环的对象都是Iterable类型；
 
@@ -131,12 +133,28 @@ for x, y in [(1, 1), (2, 4), (3, 9)]:
 
 Python的for循环本质上就是通过不断调用next()函数实现的
 
-猜想：
-对于for迭代的iterable对象其实是又封装了一层enumerate(iterable)：
-    for i in [1,2,3]:
-        pass
-    等价于：
-    for i in enumerate([1,2,3]):
-        pass
+Any object that supports iter() and next() is said to be "iterable."
+翻译：
+    任何支持iter()和next()方法的对象都为可迭代对象
+
+自定义可迭代对象：(需要对象实现__iter__()与next()方法)
+class countdown(object):
+    def __init__(self,start):
+        self.count = start
+    def __iter__(self):
+        return self
+    def next(self):
+        if self.count <= 0:
+            raise StopIteration
+        r = self.count
+        self.count -= 1
+        return r
+
+>>> c = countdown(5)
+>>> for i in c:
+... print i,
+...
+5 4 3 2 1
+>>>
 
 '''
