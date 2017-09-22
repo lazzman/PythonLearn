@@ -131,6 +131,7 @@ for x, y in [(1, 1), (2, 4), (3, 9)]:
 
 Python的for循环本质上就是通过不断调用next()函数实现的
 
+猜想：
 对于for迭代的iterable对象其实是又封装了一层enumerate(iterable)：
     for i in [1,2,3]:
         pass
