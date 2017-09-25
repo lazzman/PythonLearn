@@ -8,7 +8,7 @@ import time
 # 计时
 time_start = time.clock()
 
-wwwlog = open("access-log")
+wwwlog = open("big-access-log")
 total = 0
 
 for line in wwwlog:
