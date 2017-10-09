@@ -1,5 +1,5 @@
 # gencat.py
-# 将多个生成器串联，打印日志的每一行内容
+# 从多种文件对象中获取日志的每一行内容的序列
 # Concatenate multiple generators into a single sequence
 
 def gen_cat(sources):
