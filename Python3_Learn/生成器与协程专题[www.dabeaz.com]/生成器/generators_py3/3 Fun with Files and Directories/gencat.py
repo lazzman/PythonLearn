@@ -5,6 +5,9 @@
 def gen_cat(sources):
     for s in sources:
         for item in s:
+            # 由于解压后的文件内容编码是bytes类型，需要进一步判断与处理
+            if isinstance(item, bytes):
+                item = str(item, 'utf-8')
             yield item
 
 
