@@ -1,11 +1,12 @@
 # genopen.py
-#
+# 生成器-返回解压后的gz与bz2文件对象序列
 # Takes a sequence of filenames as input and yields a sequence of file
 # objects that have been suitably open
 
 import gzip, bz2
 
 
+# 生成器-自动解压文件列表中的压缩文件并返回文件对象序列
 def gen_open(filenames):
     for name in filenames:
         if name.endswith(".gz"):
@@ -17,7 +18,6 @@ def gen_open(filenames):
 
 
 # Example use
-
 if __name__ == '__main__':
     from genfind import gen_find
 
