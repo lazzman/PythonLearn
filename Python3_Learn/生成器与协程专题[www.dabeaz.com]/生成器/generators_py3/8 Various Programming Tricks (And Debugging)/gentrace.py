@@ -1,5 +1,5 @@
 # gentrace.py
-#
+# 打印跟踪信息
 # Trace a generator by printing items received
 
 def trace(source):
