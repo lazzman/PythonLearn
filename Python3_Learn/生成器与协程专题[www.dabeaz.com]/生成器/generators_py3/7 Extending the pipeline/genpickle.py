@@ -11,11 +11,12 @@ def gen_pickle(source):
         yield pickle.dumps(item)
 
 
-# 从文件中读取字符串序列并反序列化为对象
+# 读取字符串序列并反序列化为对象
 def gen_unpickle(infile):
-    while True:
+    while infile:
         try:
-            item = pickle.load(infile)
+            item = pickle.loads(infile)
             yield item
+            infile = None
         except EOFError:
             return
