@@ -7,7 +7,8 @@ def recv_count():
         while True:
             n = (yield)
             print("T-minus", n)
-    except GeneratorExit:
+    # 调用close()方法，会向生成器对象抛出GeneratorExit异常，可以在生成器内部捕获该异常并处理
+    except GeneratorExit as g:
         print("Kaboom!")
 
 
