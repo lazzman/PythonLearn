@@ -1,9 +1,8 @@
 # ------------------------------------------------------------
-# pyos2.py  -  The Python Operating System
-# Python实现操作系统-2.任务调度（2个任务轮询执行）
-# Step 2: A Scheduler
+# pyos4.py  -  The Python Operating System
+# Python实现操作系统-4.介绍“系统调用”的概念
+# Step 4: Introduce the idea of a "System Call"
 # ------------------------------------------------------------
-
 
 # ------------------------------------------------------------
 #                       === Tasks ===
@@ -39,14 +38,44 @@ class Scheduler(object):
         self.schedule(newtask)
         return newtask.tid
 
+    def exit(self, task):
+        print
+        "Task %d terminated" % task.tid
+        del self.taskmap[task.tid]
+
     def schedule(self, task):
         self.ready.put(task)
 
     def mainloop(self):
         while self.taskmap:
             task = self.ready.get()
-            result = task.run()
+            try:
+                result = task.run()
+                if isinstance(result, SystemCall):
+                    result.task = task
+                    result.sched = self
+                    result.handle()
+                    continue
+            except StopIteration:
+                self.exit(task)
+                continue
             self.schedule(task)
+
+
+# ------------------------------------------------------------
+#                   === System Calls ===
+# ------------------------------------------------------------
+
+class SystemCall(object):
+    def handle(self):
+        pass
+
+
+# Return a task's ID number
+class GetTid(SystemCall):
+    def handle(self):
+        self.task.sendval = self.task.tid
+        self.sched.schedule(self.task)
 
 
 # ------------------------------------------------------------
@@ -54,19 +83,18 @@ class Scheduler(object):
 # ------------------------------------------------------------
 if __name__ == '__main__':
 
-    # Two tasks
     def foo():
-        while True:
-            print("I'm foo")
+        mytid = yield GetTid()
+        for i in range(5):
+            print("I'm foo", mytid, i)
             yield
 
 
     def bar():
-        while True:
-            print("I'm bar")
+        mytid = yield GetTid()
+        for i in range(10):
+            print("I'm bar", mytid, i)
             yield
-
-            # Run them
 
 
     sched = Scheduler()
