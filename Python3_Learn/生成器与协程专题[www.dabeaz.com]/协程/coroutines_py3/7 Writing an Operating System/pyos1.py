@@ -26,11 +26,9 @@ class Task(object):
 if __name__ == '__main__':
     # A simple generator/coroutine function
     def foo():
-        print
-        "Part 1"
+        print("Part 1")
         yield
-        print
-        "Part 2"
+        print("Part 2")
         yield
 
 
