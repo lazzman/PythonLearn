@@ -26,6 +26,8 @@ CHAR_TO_INT = {
 }
 
 def str2int(s):
+    # 字符串也是可迭代
+    str
     ints = map(lambda ch: CHAR_TO_INT[ch], s)
     return reduce(lambda x, y: x * 10 + y, ints)
 

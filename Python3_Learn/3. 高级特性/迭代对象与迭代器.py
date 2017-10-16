@@ -1,28 +1,53 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-'''
-如果给定一个list或tuple，我们可以通过for循环来遍历这个list或tuple，这种遍历我们称为迭代（Iteration）。
-
-在Python中，迭代是通过for ... in来完成的，而很多语言比如C或者Java，迭代list是通过下标完成的，比如Java代码：
-
-for (i=0; i<list.length; i++) {
-    n = list[i];
-}
-可以看出，Python的for循环抽象程度要高于Java的for循环，因为Python的for循环不仅可以用在list或tuple上，还可以作用在其他可迭代对象上。
-
-list这种数据类型虽然有下标，但很多其他数据类型是没有下标的，但是，只要是可迭代对象，无论有无下标，都可以迭代，比如dict就可以迭代
-
-因为dict的存储不是按照list的方式顺序排列，所以，迭代出的结果顺序很可能不一样。
-
-
-
-猜想：python中实现了__iter__方法和__next__方法的对象都是可迭代对象?
-
-'''
-
 from collections import Iterable, Iterator
 
+'''
+Python中关于迭代有两个概念，第一个是Iterable，第二个是Iterator，协议规定Iterable的__iter__方法会返回一个Iterator, Iterator的__next__方法（Python 2里是next）会返回下一个迭代对象，
+如果迭代结束则抛出StopIteration异常。同时，Iterator自己也是一种Iterable，所以也需要实现Iterable的接口，也就是__iter__，这样在for当中两者都可以使用。
+Iterator的__iter__只需要返回自己就行了。这样，下面的代码就可以工作：
+-----------------------------------------------------------------------
+for i in my_list:
+    ...
+
+for i in iter(mylist):
+    ...
+
+for i in (v for v in mylist if v is not None):
+    ...
+-----------------------------------------------------------------------
+
+Python中许多方法直接返回iterator，比如itertools里面的izip等方法，如果Iterator自己不是Iterable的话，就很不方便，需要先返回一个Iterable对象，
+再让Iterable返回Iterator。生成器表达式也是一个iterator，显然对于生成器表达式直接使用for是非常重要的。那么为什么不只保留Iterator的接口而还需要设计Iterable呢？
+许多对象比如list、dict，是可以重复遍历的，甚至可以同时并发地进行遍历，通过__iter__每次返回一个独立的迭代器，就可以保证不同的迭代过程不会互相影响。
+而生成器表达式之类的结果往往是一次性的，不可以重复遍历，所以直接返回一个Iterator就好。让Iterator也实现Iterable的兼容就可以很灵活地选择返回哪一种。
+
+总结来说Iterator实现的__iter__是为了兼容Iterable的接口，从而让Iterator成为Iterable的一种实现。
+
+补充一下题主对于for的理解基本上是正确的，但仍然有一点点偏差：for为了兼容性其实有两种机制，如果对象有__iter__会使用迭代器，但是如果对象没有__iter__，
+但是实现了__getitem__，会改用下标迭代的方式。我们可以试一下：
+------------------------------------------------------------------------
+>>> class NotIterable(object):
+...     def __init__(self, baselist):
+...         self._baselist = baselist
+...     def __getitem__(self, index):
+...         return self._baselist[index]
+...
+>>> t = NotIterable([1,2,3])
+>>> for i in t:
+...     print i
+...
+1
+2
+3
+>>> iter(t)
+<iterator object at 0x0345E3D0>
+--------------------------------------------------------------------------
+当for发现没有__iter__但是有__getitem__的时候，会从0开始依次读取相应的下标，直到发生IndexError为止，这是一种旧的迭代协议。iter方法也会处理这种情况，
+在不存在__iter__的时候，返回一个下标迭代的iterator对象来代替。一个重要的例子是str，字符串就是没有__iter__接口的。
+
+'''
 
 def g():
     yield 1
@@ -122,7 +147,6 @@ print('iter [(1, 1), (2, 4), (3, 9)]:')
 for x, y in [(1, 1), (2, 4), (3, 9)]:
     print(x, y)
 
-list
 
 '''
 凡是可作用于for循环的对象都是Iterable类型；
@@ -130,12 +154,6 @@ list
 凡是可作用于next()函数的对象都是Iterator类型，它们表示一个惰性计算的序列；
 
 集合数据类型如list、dict、str等是Iterable但不是Iterator，不过可以通过iter()函数获得一个Iterator对象。
-
-Python的for循环本质上就是通过不断调用next()函数实现的
-
-Any object that supports iter() and next() is said to be "iterable."
-翻译：
-    任何支持iter()和next()方法的对象都为可迭代对象
 
 自定义可迭代对象：(需要对象实现__iter__()与next()方法)
 class countdown(object):
