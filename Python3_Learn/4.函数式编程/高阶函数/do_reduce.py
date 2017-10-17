@@ -27,7 +27,6 @@ CHAR_TO_INT = {
 
 def str2int(s):
     # 字符串也是可迭代
-    str
     ints = map(lambda ch: CHAR_TO_INT[ch], s)
     return reduce(lambda x, y: x * 10 + y, ints)
 
@@ -53,6 +52,7 @@ def str2float(s):
     nums = map(lambda ch: CHAR_TO_FLOAT[ch], s)
     point = 0
     def to_float(f, n):
+        # 内层函数修改外层局部变量的值，需要声明为nonlocal
         nonlocal point
         if n == -1:
             point = 1
