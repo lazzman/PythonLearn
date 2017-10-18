@@ -3,8 +3,9 @@
 
 ' Simple ORM using metaclass '
 
-class Field(object):
 
+# 基类
+class Field(object):
     def __init__(self, name, column_type):
         self.name = name
         self.column_type = column_type
@@ -12,35 +13,45 @@ class Field(object):
     def __str__(self):
         return '<%s:%s>' % (self.__class__.__name__, self.name)
 
-class StringField(Field):
 
+# 字符串型字段
+class StringField(Field):
     def __init__(self, name):
         super(StringField, self).__init__(name, 'varchar(100)')
 
-class IntegerField(Field):
 
+# 整型字段
+class IntegerField(Field):
     def __init__(self, name):
         super(IntegerField, self).__init__(name, 'bigint')
 
-class ModelMetaclass(type):
 
+# 定义元类
+class ModelMetaclass(type):
     def __new__(cls, name, bases, attrs):
-        if name=='Model':
+        # 如果类的名称为Model，直接返回
+        if name == 'Model':
             return type.__new__(cls, name, bases, attrs)
+        # 如果类的名称不为Model，打印类名
         print('Found model: %s' % name)
+        # 创建一个字典，存储所有Field类型的属性
         mappings = dict()
         for k, v in attrs.items():
             if isinstance(v, Field):
                 print('Found mapping: %s ==> %s' % (k, v))
                 mappings[k] = v
+        # 从类中删除Field类型的属性
         for k in mappings.keys():
             attrs.pop(k)
-        attrs['__mappings__'] = mappings # 保存属性和列的映射关系
-        attrs['__table__'] = name # 假设表名和类名一致
+        # 在类中使用__mappings__属性保存属性和列的映射关系
+        attrs['__mappings__'] = mappings
+        # 在类中使用__table__属性保存表名，假设表名和类名一致
+        attrs['__table__'] = name
         return type.__new__(cls, name, bases, attrs)
 
-class Model(dict, metaclass=ModelMetaclass):
 
+# 定义一个继承dict的Model类
+class Model(dict, metaclass=ModelMetaclass):
     def __init__(self, **kw):
         super(Model, self).__init__(**kw)
 
@@ -51,6 +62,7 @@ class Model(dict, metaclass=ModelMetaclass):
             raise AttributeError(r"'Model' object has no attribute '%s'" % key)
 
     def __setattr__(self, key, value):
+        # 继承了dict，可以直接存储到当前对象字典中
         self[key] = value
 
     def save(self):
@@ -65,6 +77,7 @@ class Model(dict, metaclass=ModelMetaclass):
         print('SQL: %s' % sql)
         print('ARGS: %s' % str(args))
 
+
 # testing code:
 
 class User(Model):
@@ -72,6 +85,7 @@ class User(Model):
     name = StringField('username')
     email = StringField('email')
     password = StringField('password')
+
 
 u = User(id=12345, name='Michael', email='test@orm.org', password='my-pwd')
 u.save()

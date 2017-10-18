@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-'一个类定义了__getitem__方法后，就可被for迭代或者切片'
+'一个类定义了__getitem__方法后，就可被for迭代或者切片或者使用对象[key]的方式访问'
 
 
 class Fib(object):

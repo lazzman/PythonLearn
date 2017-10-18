@@ -9,6 +9,8 @@ mro是method resolution order的缩写，表示了类继承体系中的成员解
 注意：python2与python3的mro策略有所不同，这里我们只看Python3的mro策略
 
 在python中，每个类都有一个mro的类方法。
+
+!!! 钻石继承问题：
 ---------------------------------------------
 class Base(object):
 	def __init__(self):
@@ -120,13 +122,13 @@ class Base(object):
 
 class Medium1(Base):
     def __init__(self):
-        super(Medium1, self).__init__()
+        super(Medium1, self).__init__()  # 等价于super().__init__()
         print("Medium1 init")
 
 
 class Medium2(Base):
     def __init__(self):
-        super(Medium2, self).__init__()
+        super(Medium2, self).__init__()  # 等价于super().__init__()
         print("Medium2 init")
 
     def hi(self):
@@ -135,7 +137,7 @@ class Medium2(Base):
 
 class Leaf(Medium1, Medium2):
     def __init__(self):
-        super(Leaf, self).__init__()
+        super(Leaf, self).__init__()  # 等价于super().__init__()
         print("Leaf init")
 
 
