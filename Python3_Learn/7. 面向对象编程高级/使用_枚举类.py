@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+'Python提供了枚举类型，保证每个常量都是class的一个唯一实例，和Java类似'
+
 from enum import Enum, unique
 
-@unique
+
+@unique # @unique装饰器可以帮助我们检查保证没有重复值
 class Weekday(Enum):
     Sun = 0
     Mon = 1
@@ -12,6 +15,7 @@ class Weekday(Enum):
     Thu = 4
     Fri = 5
     Sat = 6
+
 
 day1 = Weekday.Mon
 
