@@ -155,13 +155,13 @@ for x, y in [(1, 1), (2, 4), (3, 9)]:
 
 集合数据类型如list、dict、str等是Iterable但不是Iterator，不过可以通过iter()函数获得一个Iterator对象。
 
-自定义可迭代对象：(需要对象实现__iter__()与next()方法)
+自定义可迭代对象：(需要对象实现__iter__()与__next__()方法)
 class countdown(object):
     def __init__(self,start):
         self.count = start
     def __iter__(self):
         return self
-    def next(self):
+    def __next__(self):
         if self.count <= 0:
             raise StopIteration
         r = self.count

@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+'当一个类实现了__iter__和__next__方法时，其实例就是一个迭代器'
+
 class Fib(object):
 
     def __init__(self):
