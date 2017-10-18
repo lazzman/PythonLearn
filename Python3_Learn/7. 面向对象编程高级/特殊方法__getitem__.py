@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-class Fib(object):
+'一个类定义了__getitem__方法后，就可被for迭代或者切片'
 
+
+class Fib(object):
     def __getitem__(self, n):
         if isinstance(n, int):
             a, b = 1, 1
@@ -22,9 +24,14 @@ class Fib(object):
                 a, b = b, a + b
             return L
 
+
 f = Fib()
 print(f[0])
 print(f[5])
 print(f[100])
 print(f[0:5])
 print(f[:10])
+
+# 注意无限循环输出
+for i in f:
+    print(i)
