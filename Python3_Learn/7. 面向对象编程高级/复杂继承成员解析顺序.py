@@ -26,7 +26,7 @@ class Leaf(Medium1, Medium2):
 		super(Leaf, self).__init__()
 		print “Leaf init”
 >>> Leaf.mro()
-[<class '__main__.Leaf'>, <class '__main__.Medium1'>, <class '__main__.Base'>, <class '__main__.Medium2'>, <type 'object'>]
+[<class '__main__.Leaf'>, <class '__main__.Medium1'>, <class '__main__.Medium2'>, <class '__main__.Base'>, <class 'object'>]
 ---------------------------------------------
 
 mro方法返回的是一个祖先类的列表。Leaf的每个祖先都在其中出现一次，这也是super在父类中查找成员的顺序。
@@ -40,6 +40,11 @@ mro方法返回的是一个祖先类的列表。Leaf的每个祖先都在其中�
 2. 钻石继承的多次初始化问题。在mro的list中，Base类只出现了一次。事实上任何类都只会在mro list中出现一次。这就确保了super向上调用的过程中，任何祖先类的方法都只会被执行一次。
 
 至于mro的生成算法，可以参考这篇wiki：https://en.wikipedia.org/wiki/C3_linearization
+
+小结：
+mro()返回的父类列表：
+1. 查找顺序，列表元素从左向右查找
+2. 初始化顺序，列表元素从右向左依次初始化
 '''
 
 
@@ -101,3 +106,38 @@ a.look()
 print(B.mro())
 b = B()
 b.sing()
+
+print('---------------------------------------------------')
+
+
+class Base(object):
+    def __init__(self):
+        print("Base init")
+
+    def hi(self):
+        print("Base hi")
+
+
+class Medium1(Base):
+    def __init__(self):
+        super(Medium1, self).__init__()
+        print("Medium1 init")
+
+
+class Medium2(Base):
+    def __init__(self):
+        super(Medium2, self).__init__()
+        print("Medium2 init")
+
+    def hi(self):
+        print("Medium2 hi")
+
+
+class Leaf(Medium1, Medium2):
+    def __init__(self):
+        super(Leaf, self).__init__()
+        print("Leaf init")
+
+
+print(Leaf.mro())
+leaf = Leaf()
