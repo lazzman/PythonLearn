@@ -47,3 +47,9 @@ utc_dt = datetime.utcnow().replace(tzinfo=timezone.utc)
 utc8_dt = utc_dt.astimezone(timezone(timedelta(hours=8)))
 print('UTC+0:00 now =', utc_dt)
 print('UTC+8:00 now =', utc8_dt)
+
+'''
+datetime表示的时间需要时区信息才能确定一个特定的时间，否则只能视为本地时间。
+
+如果要存储datetime，最佳方法是将其转换为timestamp再存储，因为timestamp的值与时区完全无关。
+'''
