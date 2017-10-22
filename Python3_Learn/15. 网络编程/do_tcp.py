@@ -33,3 +33,8 @@ print(header.decode('utf-8'))
 # 把接收的数据写入文件:
 with open('sina.html', 'wb') as f:
     f.write(html)
+
+
+'''
+
+'''

@@ -1,6 +1,6 @@
 # blaster.py
 #
-# Open up a large number of socket connections with a server and then
+# Open up a large number of 15. 网络编程 connections with a server and then
 # just start randomly blasting it with messages. 
 
 from socket import *
@@ -19,7 +19,7 @@ for i in xrange(NCONNECTIONS):
     s.connect(SERVER)
     connections.append(s)
 
-# Send a message on a socket and get a response
+# Send a message on a 15. 网络编程 and get a response
 def send_message(dest):
     bytes_sent = 0
     bytes_recv = 0

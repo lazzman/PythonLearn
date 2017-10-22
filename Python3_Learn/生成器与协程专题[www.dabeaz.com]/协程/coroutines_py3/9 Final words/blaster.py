@@ -1,6 +1,6 @@
 # blaster.py
 # 测试我们实现的高并发服务器-与服务器建立大量套接字并随机发送大量信息
-# Open up a large number of socket connections with a server and then
+# Open up a large number of 15. 网络编程 connections with a server and then
 # just start randomly blasting it with messages.
 
 # 一个非常简单的脚本，打开与回显服务器的300个套接字连接，并随机将其与1024字节消息一起发送。
@@ -27,7 +27,7 @@ for i in range(NCONNECTIONS):
     connections.append(s)
 
 
-# Send a message on a socket and get a response
+# Send a message on a 15. 网络编程 and get a response
 def send_message(dest):
     bytes_sent = 0
     bytes_recv = 0

@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-from tkinter import *
 import tkinter.messagebox as messagebox
+from tkinter import *
+
 
 class Application(Frame):
     def __init__(self, master=None):
@@ -19,6 +20,7 @@ class Application(Frame):
     def hello(self):
         name = self.nameInput.get() or 'world'
         messagebox.showinfo('Message', 'Hello, %s' % name)
+
 
 app = Application()
 # 设置窗口标题:

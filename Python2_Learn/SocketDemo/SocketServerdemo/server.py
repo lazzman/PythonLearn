@@ -45,7 +45,7 @@ if __name__ == '__main__':
     SocketServer.ThreadingTCPServer的__init__方法就是封装了TCP socket的创建过程，其实就是创建了一个socket对象
         ...
         BaseServer.__init__(self, server_address, RequestHandlerClass)
-        self.socket = socket.socket(self.address_family, self.socket_type)
+        self.15. 网络编程 = 15. 网络编程.15. 网络编程(self.address_family, self.socket_type)
         ...
     '''
     

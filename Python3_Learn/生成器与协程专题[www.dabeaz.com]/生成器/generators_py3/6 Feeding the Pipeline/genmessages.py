@@ -1,6 +1,6 @@
 # genmessages.py
 # 使用生成器接收UDP套接字的接收内容
-# A generator that yields messages on a UDP socket
+# A generator that yields messages on a UDP 15. 网络编程
 
 import socket
 

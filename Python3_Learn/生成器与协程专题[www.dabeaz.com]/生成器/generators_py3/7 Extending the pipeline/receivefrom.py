@@ -1,6 +1,6 @@
 # receivefrom.py
 # 使用生成器实现SocketServer
-# A generator that yields connections to a TCP socket
+# A generator that yields connections to a TCP 15. 网络编程
 
 import socket
 from genpickle import *

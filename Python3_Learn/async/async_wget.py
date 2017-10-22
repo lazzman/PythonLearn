@@ -16,7 +16,7 @@ def wget(host):
         if line == b'\r\n':
             break
         print('%s header > %s' % (host, line.decode('utf-8').rstrip()))
-    # Ignore the body, close the socket
+    # Ignore the body, close the 15. 网络编程
     writer.close()
 
 loop = asyncio.get_event_loop()
