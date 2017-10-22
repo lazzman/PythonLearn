@@ -66,11 +66,11 @@ Server:        192.168.19.4
 Address:    192.168.19.4#53
 
 Non-authoritative answer:
-python.org    mail exchanger = 50 mail.python.org.
+python.org    16. 电子邮件 exchanger = 50 16. 电子邮件.python.org.
 
 Authoritative answers can be found from:
-mail.python.org    internet address = 82.94.164.166
-mail.python.org    has AAAA address 2001:888:2000:d::a6
+16. 电子邮件.python.org    internet address = 82.94.164.166
+16. 电子邮件.python.org    has AAAA address 2001:888:2000:d::a6
 
 
 Exit code: 0

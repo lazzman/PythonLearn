@@ -34,7 +34,3 @@ print(header.decode('utf-8'))
 with open('sina.html', 'wb') as f:
     f.write(html)
 
-
-'''
-
-'''
