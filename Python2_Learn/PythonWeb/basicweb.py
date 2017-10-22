@@ -9,7 +9,7 @@ Python对于Web体系也有一套规范叫做WSGI（Web Server Gateway Interface
 层次关系图：
     Web应用(处理框架分发的请求；并将结果返回给框架)[程序员根据框架来开发Web应用]
      ↑↓
-    Web框架(路由分发请求，调用Web应用对应的处理方法；处理应用返回的结果，再返回给Web服务器)[django、Flask、web.py、Bottle、Quixote...]
+    Web框架(路由分发请求，调用Web应用对应的处理方法；处理应用返回的结果，再返回给Web服务器)[django、Flask、18. Web开发.py、Bottle、Quixote...]
      ↑↓ 
     Web服务器 (监听请求，将客户端请求传递给框架；将结果返回给客户端)[python内置的wsgiref.simple_server、Tornado...]        
 
@@ -22,7 +22,7 @@ from wsgiref.simple_server import make_server
 
 def MyApp(environ, start_response):
     start_response('200 OK', [('Content-Type', 'text/html')])
-    return '<h1>Hello,web!</h1>'
+    return '<h1>Hello,18. Web开发!</h1>'
 
 if __name__ == '__main__':
     httpd = make_server('127.0.0.1', 8000, MyApp)
