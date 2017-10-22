@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+'Python提供了HTMLParser来非常方便地解析HTML'
+
 from html.parser import HTMLParser
-from html.entities import name2codepoint
+
 
 class MyHTMLParser(HTMLParser):
-
     def handle_starttag(self, tag, attrs):
         print('<%s>' % tag)
 

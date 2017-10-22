@@ -51,3 +51,5 @@ with WithDemo('with原理') as w:
     print(w)
 
     # 需要注意的地方__enter__返回一个对象然后赋值给w，在__exit__进行一些clear的操作，挺方便的。
+
+
