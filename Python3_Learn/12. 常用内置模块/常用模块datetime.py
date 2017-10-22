@@ -1,15 +1,24 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+'datetime是Python处理日期和时间的标准库'
+
 from datetime import datetime, timedelta, timezone
 
+'''
+注意到datetime是模块，datetime模块还包含一个datetime类，通过from datetime import datetime导入的才是datetime这个类。
+
+如果仅导入import datetime，则必须引用全名datetime.datetime。
+
+datetime.now()返回当前日期和时间，其类型是datetime。
+'''
 # 获取当前datetime:
 now = datetime.now()
 print('now =', now)
 print('type(now) =', type(now))
 
 # 用指定日期时间创建datetime:
-dt = datetime(2015, 4, 19, 12, 20)
+dt = datetime(2015, 4, 19, 12, 20, 59)
 print('dt =', dt)
 
 # 把datetime转换为timestamp:
