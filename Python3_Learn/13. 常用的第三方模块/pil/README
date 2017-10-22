@@ -1,3 +1,5 @@
+PIL提供了操作图像的强大功能，可以通过简单的代码完成复杂的图像处理。
+===========
 Install PIL
 ===========
 
@@ -24,3 +26,4 @@ $ sudo pip3 install Pillow
 For Debian/Ubuntu:
 
 $ sudo apt-get install python3-pil
+
