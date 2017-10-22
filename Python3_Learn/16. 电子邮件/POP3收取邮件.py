@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+'Python内置一个poplib模块，实现了POP3协议，可以直接用来收邮件'
+
 import poplib
 from email.header import decode_header
 from email.parser import Parser
