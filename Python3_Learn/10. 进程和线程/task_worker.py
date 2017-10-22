@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-import time, sys, queue
+import time
 from multiprocessing.managers import BaseManager
+
 
 # 创建类似的QueueManager:
 class QueueManager(BaseManager):
     pass
+
 
 # 由于这个QueueManager只从网络上获取Queue，所以注册时只提供名字:
 QueueManager.register('get_task_queue')
@@ -27,7 +29,7 @@ for i in range(10):
     try:
         n = task.get(timeout=1)
         print('run task %d * %d...' % (n, n))
-        r = '%d * %d = %d' % (n, n, n*n)
+        r = '%d * %d = %d' % (n, n, n * n)
         time.sleep(1)
         result.put(r)
     except Queue.Empty:
