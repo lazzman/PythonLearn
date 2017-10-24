@@ -78,8 +78,8 @@ class SystemCall(object):
 class GetTid(SystemCall):
     # 从用户任务中取得tid，并将用户任务再次加入到任务准备队列，当用户任务再次run()时，将会取的tid
     def handle(self):
-        self.task.sendvalue = self.task.tid
-        self.sched.scheduler(self.task)
+        self.task.sendvalue = self.task.tid  # 将用户任务tid返回到用户任务
+        self.sched.scheduler(self.task)  # 将用户任务再次加入到任务准备队列
 
 
 # 创建一个新的用户任务
@@ -91,6 +91,21 @@ class NewTask(SystemCall):
         tid = self.sched.new(self.target)  # 调用scheduler添加一个新任务
         self.sched.scheduler(self.task)  # 将任务添加到任务队列
         self.task.sendval = tid  # 将新建的任务tid返回到原本用户任务
+
+
+# 根据tid终止用户任务
+class KillTask(SystemCall):
+    def __init__(self, tid):
+        self.tid = tid
+
+    def handle(self):
+        task = self.sched.taskmap.get(self.tid, None)
+        if task:
+            task.target.close()  # 关闭任务(关闭生成器)
+            self.task.sendvalue = True
+        else:
+            self.task.sendvalue = False
+        self.sched.scheduler(self.task)  # 将用户任务再次加入到任务准备队列
 
 
 if __name__ == '__main__':
@@ -127,9 +142,16 @@ if __name__ == '__main__':
         for i in range(10):
             print("%d I'm bar" % (i,))
             yield
+        # 通过系统调用关闭上面新建的用户任务
+        success = yield KillTask(newtid)
+        if success:
+            print('SystemCall=>KillTask task success, tid : %s' % (newtid,))
+        else:
+            print('SystemCall=>KillTask task fail, tid : %s' % (newtid,))
 
-# Run them
-sched = Scheduler()
-# sched.new(foo())
-sched.new(bar())
-sched.mainloop()
+
+    # Run them
+    sched = Scheduler()
+    # sched.new(foo())
+    sched.new(bar())
+    sched.mainloop()
