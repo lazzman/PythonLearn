@@ -5,7 +5,7 @@
 
 import itertools
 
-# count()会创建一个无限的迭代器，所以上述代码会打印出自然数序列，根本停不下来，只能按Ctrl+C退出
+# count()会创建一个从1开始无限递增的迭代器，所以上述代码会打印出自然数序列，根本停不下来，只能按Ctrl+C退出
 natuals = itertools.count(1)
 for n in natuals:
     print('count', n)
