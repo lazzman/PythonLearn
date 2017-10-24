@@ -111,7 +111,7 @@ if __name__ == '__main__':
     def foo():
         # 此处先执行系统调用，执行完毕后将系统调用返回值返回到当前任务中的mytid
         mytid = yield GetTid()
-        print('foo tid: %s' % (mytid,))
+        print('SystemCall=>foo tid: %s' % (mytid,))
         for n in natuals:
             print("%d I'm foo" % (n,))
             yield
@@ -120,10 +120,10 @@ if __name__ == '__main__':
     def bar():
         # 通过系统调用获取当前任务的tid
         mytid = yield GetTid()
-        print('bar tid: %s' % (mytid,))
+        print('SystemCall=>bar tid: %s' % (mytid,))
         # 通过系统调用创建一个新的用户任务
         newtid = yield NewTask(foo())
-        print('NewTask crate a new task , tid : %s' % (newtid,))
+        print('SystemCall=>NewTask crate a new task , tid : %s' % (newtid,))
         for i in range(10):
             print("%d I'm bar" % (i,))
             yield
