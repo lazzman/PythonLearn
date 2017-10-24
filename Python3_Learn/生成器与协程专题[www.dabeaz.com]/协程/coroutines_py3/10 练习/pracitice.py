@@ -26,7 +26,7 @@ from queue import Queue
 class Scheduler(object):
     def __init__(self):
         self.ready = Queue()  # 准备执行的任务队列
-        self.taskmap = {}  # 保存活着的的任务key是任务ID,value是任务实例
+        self.taskmap = {}  # 保存全部的任务(包括准备执行的任务以及在等待中的任务)[key是任务ID,value是任务实例]
 
         self.exit_waiting = {}  # 等待其他任务执行完毕后执行
 
@@ -106,6 +106,20 @@ class KillTask(SystemCall):
         else:
             self.task.sendvalue = False
         self.sched.scheduler(self.task)  # 将用户任务再次加入到任务准备队列
+
+
+# 等待制定任务执行完毕后，再恢复当前用户任务执行（当前用户任务指系统调用的调用者）
+class WaitTask(SystemCall):
+    def __init__(self, tid):
+        self.tid = tid
+
+    def handle(self):
+        result = self.sched.waitforexit(self.task, self.tid)
+        self.task.sendval = result
+        # If waiting for a non-existent task,
+        # return immediately without waiting
+        if not result:
+            self.sched.schedule(self.task)
 
 
 if __name__ == '__main__':

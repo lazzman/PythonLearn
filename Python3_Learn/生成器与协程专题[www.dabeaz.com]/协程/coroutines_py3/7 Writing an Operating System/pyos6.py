@@ -135,7 +135,7 @@ class WaitTask(SystemCall):
 # ------------------------------------------------------------
 if __name__ == '__main__':
     def foo():
-        for i in range(5):
+        for i in range(10):
             print("I'm foo", i)
             yield
 
