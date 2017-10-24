@@ -27,27 +27,55 @@ class Scheduler(object):
     def __init__(self):
         self.ready = Queue()  # 准备执行的任务队列
         self.taskmap = {}  # 保存全部的任务(包括准备执行的任务以及在等待中的任务)[key是任务ID,value是任务实例]
+        self.exit_waiting = {}  # 被等待任务执行完毕后，取出被等待任务对应的等待任务列表，执行任务[key是被等待任务的ID，value是等待被等待任务执行完毕后在执行的任务列表]
 
-        self.exit_waiting = {}  # 等待其他任务执行完毕后执行
-
-    # 向任务调度中添加一个新任务
     def new(self, target):
+        '''
+        向任务调度中添加一个新任务
+        :param target: 协程实例
+        :return:
+        '''
         newtask = Task(target)  # 创建一个任务实例
         self.taskmap[newtask.tid] = newtask  # 存入要执行的任务
         self.scheduler(newtask)
         return newtask.tid
 
-    # 将任务放入到准备队列
     def scheduler(self, task):
+        '''
+        将任务放入到准备队列
+        :param task: 准备执行的任务实例
+        :return:
+        '''
         self.ready.put(task)
 
-    # 任务退出
     def exit(self, task):
+        '''
+        任务退出
+        :param task: 执行完毕的任务实例
+        :return:
+        '''
         print('Task %d terminated' % (task.tid,))
         self.taskmap.pop(task.tid)
+        # 如果任务退出时，从等待任务队列中找到等待的任务加入到执行队列
+        for task in self.exit_waiting.pop(task.tid, []):
+            self.scheduler(task)
 
-    # 任务调度循环（从准备队列中取出任务执行，直到任务执行到yield语句，yield<==>traps）[任务的执行顺序是根据队列中任务的存放顺序，先进先出FIFO]
+    def waitforexit(self, task, waittid):
+        '''
+        将一个任务添加到被等待任务的等待列表中，只有当被等待任务执行完毕后，等待任务才会执行
+        :param task: 等待的任务
+        :param waittid: 被等待任务的tid
+        :return:
+        '''
+        if waittid in self.taskmap:
+            # dict.setdefault(...)  D.setdefault(k[,d]) -> D.get(k,d), also set D[k]=d if k not in D
+            self.exit_waiting.setdefault(waittid, []).append(task)
+
     def mainloop(self):
+        '''
+        任务调度循环（从准备队列中取出任务执行，直到任务执行到yield语句，yield<==>traps）[任务的执行顺序是根据队列中任务的存放顺序，先进先出FIFO]
+        :return:
+        '''
         while self.taskmap:
             task = self.ready.get()
             try:
