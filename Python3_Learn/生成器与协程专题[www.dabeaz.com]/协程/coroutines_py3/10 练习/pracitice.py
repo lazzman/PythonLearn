@@ -90,7 +90,7 @@ class NewTask(SystemCall):
     def handle(self):
         tid = self.sched.new(self.target)  # 调用scheduler添加一个新任务
         self.sched.scheduler(self.task)  # 将任务添加到任务队列
-        self.task.sendval = tid  # 将新建的任务tid返回到原本用户任务
+        self.task.sendvalue = tid  # 将新建的任务tid返回到原本用户任务
 
 
 # 根据tid终止用户任务
@@ -128,7 +128,7 @@ if __name__ == '__main__':
         mytid = yield GetTid()
         print('SystemCall=>foo tid: %s' % (mytid,))
         for n in natuals:
-            print("%d I'm foo" % (n,))
+            print("%d I'm foo tid :%s" % (n, mytid))
             yield
 
 
@@ -148,6 +148,8 @@ if __name__ == '__main__':
             print('SystemCall=>KillTask task success, tid : %s' % (newtid,))
         else:
             print('SystemCall=>KillTask task fail, tid : %s' % (newtid,))
+
+        yield
 
 
     # Run them
