@@ -1,3 +1,9 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+'实现了基本任务管理的任务调度器'
+
+
 # ------------------------------------------------------------
 #                       === Tasks === 任务
 # ------------------------------------------------------------
@@ -54,7 +60,7 @@ class Scheduler(object):
         :param task: 执行完毕的任务实例
         :return:
         '''
-        print('Task %d terminated' % (task.tid,))
+        # print('Task %d terminated' % (task.tid,))
         self.taskmap.pop(task.tid)
         # 如果任务退出时，从等待任务队列中找到等待的任务加入到执行队列
         for task in self.exit_waiting.pop(task.tid, []):
@@ -65,11 +71,14 @@ class Scheduler(object):
         将一个任务添加到被等待任务的等待列表中，只有当被等待任务执行完毕后，等待任务才会执行
         :param task: 等待的任务
         :param waittid: 被等待任务的tid
-        :return:
+        :return: True代表成功将任务加入到对应的等待队列中，False表示任务不在调度器管理中(即taskmap中)
         '''
         if waittid in self.taskmap:
             # dict.setdefault(...)  D.setdefault(k[,d]) -> D.get(k,d), also set D[k]=d if k not in D
-            self.exit_waiting.setdefault(waittid, []).append(task)
+            self.exit_waiting.setdefault(waittid, []).append(task)  # 将等待任务加入到等待队列
+            return True
+        else:
+            return False
 
     def mainloop(self):
         '''
@@ -157,10 +166,17 @@ if __name__ == '__main__':
     natuals = itertools.count(0)
 
     '''
-    # Two tasks
     def foo():
         for n in natuals:
             print("%d I'm foo" % (n,))
+            yield
+    
+    def foo():
+        # 此处先执行系统调用，执行完毕后将系统调用返回值返回到当前任务中的mytid
+        mytid = yield GetTid()
+        print('SystemCall=>foo tid: %s' % (mytid,))
+        for n in natuals:
+            print("%d I'm foo tid :%s" % (n, mytid))
             yield
     '''
 
@@ -169,11 +185,28 @@ if __name__ == '__main__':
         # 此处先执行系统调用，执行完毕后将系统调用返回值返回到当前任务中的mytid
         mytid = yield GetTid()
         print('SystemCall=>foo tid: %s' % (mytid,))
-        for n in natuals:
+        for n in range(10):
             print("%d I'm foo tid :%s" % (n, mytid))
             yield
 
 
+    def bar():
+        # 此处先执行系统调用，执行完毕后将系统调用返回值返回到当前任务中的mytid
+        mytid = yield GetTid()
+        print('SystemCall=>foo tid: %s' % (mytid,))
+        # 通过系统调用创建一个新的用户任务
+        newtid = yield NewTask(foo())
+        print('SystemCall=>NewTask crate a new task , tid : %s' % (newtid,))
+        # 此处先执行系统调用，执行子任务完毕后再执行当前任务
+        print('SystemCall=>WaitTask start , childtid : %s' % (newtid,))
+        yield WaitTask(newtid)
+        print('SystemCall=>WaitTask end , childtid : %s' % (newtid,))
+        for n in range(10):
+            print("%d I'm foo tid :%s" % (n, mytid))
+            yield
+
+
+    '''
     def bar():
         # 通过系统调用获取当前任务的tid
         mytid = yield GetTid()
@@ -192,7 +225,7 @@ if __name__ == '__main__':
             print('SystemCall=>KillTask task fail, tid : %s' % (newtid,))
 
         yield
-
+    '''
 
     # Run them
     sched = Scheduler()
