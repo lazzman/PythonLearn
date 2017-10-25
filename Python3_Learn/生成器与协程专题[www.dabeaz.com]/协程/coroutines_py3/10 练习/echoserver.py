@@ -10,9 +10,11 @@ from scheduler import *
 def handle_client(client, addr):
     print('Connection from', addr)
     while True:
+        yield ReadWait(client)
         data = client.recv(65536)
         if not data:
             break
+        yield WriteWait(client)
         client.send(data)
     client.close()
     print('Client Closed')
@@ -25,6 +27,7 @@ def server(port):
     sock.bind(('', port))
     sock.listen(5)
     while True:
+        yield ReadWait(sock)
         client, addr = sock.accept()
         yield NewTask(handle_client(client, addr))
 

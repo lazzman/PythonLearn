@@ -27,6 +27,7 @@ class Task(object):
 #                      === Scheduler === 任务调度
 # ------------------------------------------------------------
 from queue import Queue
+import select
 
 
 class Scheduler(object):
@@ -34,6 +35,55 @@ class Scheduler(object):
         self.ready = Queue()  # 准备执行的任务队列
         self.taskmap = {}  # 保存全部的任务(包括准备执行的任务以及在等待中的任务)[key是任务ID,value是任务实例]
         self.exit_waiting = {}  # 被等待任务执行完毕后，取出被等待任务对应的等待任务列表，执行任务[key是被等待任务的ID，value是等待被等待任务执行完毕后在执行的任务列表]
+        self.read_waiting = {}  # 保存读阻塞的任务[key是文件描述符(fd)，value是task]
+        self.write_waiting = {}  # 保存写阻塞的任务[key是文件描述符(fd)，value是task]
+
+    def iopoll(self, timeout):
+        '''
+        IO轮询，使用select确认哪些IO可读可写，恢复可读可写的任务执行
+        :param timeout:
+        :return:
+        '''
+        if self.read_waiting or self.write_waiting:
+            # select.select（rlist, wlist, xlist[, timeout]）
+            # 传递三个参数，一个为输入而观察的文件对象列表，一个为输出而观察的文件对象列表和一个观察错误异常的文件列表。
+            # 第四个是一个可选参数，表示超时秒数。其返回3个tuple，每个tuple都是一个准备好的对象列表，它和前边的参数是一样的顺序
+            # 返回三个元组，元素是文件描述符
+            r, w, e = select.select(self.read_waiting, self.write_waiting, [], timeout)
+            for fd in r:
+                self.scheduler(self.read_waiting.pop(fd))  # 恢复任务继续执行
+            for fd in w:
+                self.scheduler(self.write_waiting.pop(fd))  # 恢复任务继续执行
+
+    def waitforwrite(self, task, fd):
+        '''
+        将任务保存到写阻塞任务字典中
+        :param task: 任务实例
+        :param fd: 文件描述符
+        :return:
+        '''
+        self.write_waiting[fd] = task
+
+    def waitforread(self, task, fd):
+        '''
+        将任务保存到读阻塞任务字典中
+        :param task: 任务实例
+        :param fd: 文件描述符
+        :return:
+        '''
+        self.read_waiting[fd] = task
+
+    def iotask(self):
+        '''
+        IO轮询任务
+        :return:
+        '''
+        while (True):
+            if self.ready.empty():
+                self.iopoll(None)  # 设置select的超时时间，如果为None，select就永不超时，阻塞到有可读写的IO为止
+            else:
+                self.iopoll(0)  # 如果超时时间为0,则select会立即返回，不阻塞
+            yield
 
     def new(self, target):
         '''
@@ -86,6 +136,7 @@ class Scheduler(object):
         :return:
         '''
         while self.taskmap:
+            self.new(self.iotask())  # 启动IO轮询任务
             task = self.ready.get()
             try:
                 result = task.run()
@@ -157,6 +208,26 @@ class WaitTask(SystemCall):
         # return immediately without waiting
         if not result:
             self.sched.schedule(self.task)
+
+
+# 将IO加入读等待任务中
+class ReadWait(SystemCall):
+    def __init__(self, f):
+        self.f = f
+
+    def handle(self):
+        fd = self.f.fileno()
+        self.sched.waitforread(self.task, fd)
+
+
+# 将IO加入写等待任务中
+class WriteWait(SystemCall):
+    def __init__(self, f):
+        self.f = f
+
+    def handle(self):
+        fd = self.f.fileno()
+        self.sched.waitforwrite(self.task, fd)
 
 
 if __name__ == '__main__':
