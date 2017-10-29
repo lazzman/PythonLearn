@@ -1,16 +1,21 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+import threading
 import time
 from wsgiref.simple_server import make_server
 
 
 # 定义实现WSGI接口规范的函数
 def application(environ, start_response):
+    print('远程IP：%s 请求方式：%s 请求URI:%s 服务器处理线程ID：%s ' % (
+        environ['REMOTE_ADDR'],
+        environ['REQUEST_METHOD'], environ['PATH_INFO'], threading.current_thread().getName()))
     start_response('200 OK', [('Content-Type', 'text/html; charset=UTF-8')])
     body = '<h1>Hello, %s!</h1>' % (environ['PATH_INFO'][1:] or '18. Web开发')
     if environ['PATH_INFO'] == '/sleep':
-        time.sleep(20)
+        # 阻塞5s 其他请求此时无法进入application，单线程并且单进程导致
+        time.sleep(5)
     return [body.encode('utf-8')]
 
 
