@@ -1,17 +1,25 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+# 测试flask默认使用的
+import time
+
 from flask import Flask
 from flask import request
 
+# 创建Flask实例
 app = Flask(__name__)
 
 
+# 配置url映射方法
 @app.route('/', methods=['GET', 'POST'])
 def home():
+    # flask默认使用的server同样是单线程单进程阻塞的
+    time.sleep(5)
     return '<h1>Home</h1>'
 
 
+# 配置url映射方法
 @app.route('/signin', methods=['GET'])
 def signin_form():
     return '''<form action="/signin" method="post">
@@ -21,6 +29,7 @@ def signin_form():
               </form>'''
 
 
+# 配置url映射方法
 @app.route('/signin', methods=['POST'])
 def signin():
     # 需要从request对象读取表单内容：
