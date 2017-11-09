@@ -1,46 +1,97 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-'__init__是实例的初始化方法，但是Python并不像Java一般拥有重载机制，无法拥有多个__init__方法，但是Python提供了classmethod'
+'Python中3种方式定义类方法, 常规方式, @classmethod修饰方式, @staticmethod修饰方式.'
 
 
-class Teacher(object):
-    # 默认的初始化方法，默认最低学历是研究生
-    def __init__(self, name, age, sex):
-        self.__name = name
-        self.__age = age
-        self.__sex = sex
-        self.__education = '研究生'
+class A(object):
+    def foo(self, x):
+        print("executing foo(%s,%s)" % (self, x))
+        print('self:', self)
 
-    def info(self):
-        print('''教师信息 :
-    name: %s
-    age: %s
-    sex: %s
-    education: %s
-        ''' % (self.__name, self.__age, self.__sex, self.__education))
-
-    # 当新来一个老师，学历不是研究生时，可以调用此方法返回一个指定学历的teacher对象
     @classmethod
-    def getNewInstance(cls, name, age, sex, education):
-        t = cls(name, age, sex)
-        t.__education = education
-        # t.__setattr__('_Teacher__education', education) # 不推荐
-        return t
+    def class_foo(cls, x):
+        print("executing class_foo(%s,%s)" % (cls, x))
+        print('cls:', cls)
 
-    # 静态方法，类似Java的static修饰方法，所有老师的职责都是“教书”
     @staticmethod
-    def getDuty():
-        print('老师的职责是教书育人')
+    def static_foo(x):
+        print("executing static_foo(%s)" % x)
 
 
-if __name__ == '__main__':
-    Teacher.getDuty()
+a = A()
 
-    t1 = Teacher('zhangsan', 25, '男')
-    t1.info()
-    t1.getDuty()
+# 1.定义方式
+'''
+普通的类方法foo()需要通过self参数隐式的传递当前类对象的实例。 @classmethod修饰的方法class_foo()需要通过cls参数传递当前类对象。@staticmethod修饰的方法定义与普通函数是一样的。
 
-    t2 = Teacher.getNewInstance('lisi', 30, '女', '小学')
-    t2.info()
-    t2.getDuty()
+self和cls的区别不是强制的，只是PEP8中一种编程风格，slef通常用作实例方法的第一参数，cls通常用作类方法的第一参数。即通常用self来传递当前类对象的实例，cls传递当前类对象。
+'''
+
+# 2.绑定对象
+print(a.foo)  # <bound method A.foo of <__main__.A object at 0x000001C33A68C240>>
+print(a.class_foo)  # <bound method A.class_foo of <class '__main__.A'>>
+print(a.static_foo)  # <bound method A.class_foo of <class '__main__.A'>>
+# foo方法绑定对象A的实例，class_foo方法绑定对象A，static_foo没有参数绑定。
+
+# 3.调用方式
+'''
+foo可通过实例a调用，类对像A直接调用会参数错误。
+-------------------------------------
+>>> a.foo(1)
+executing foo(<__main__.A object at 0x0278B170>,1)
+self: <__main__.A object at 0x0278B170>
+>>> A.foo(1)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: foo() missing 1 required positional argument: 'x'
+-------------------------------------
+
+但foo如下方式可以使用正常，显式的传递实例参数a。
+-------------------------------------
+>>> A.foo(a, 1)
+executing foo(<__main__.A object at 0x0278B170>,1)
+self: <__main__.A object at 0x0278B170>
+-------------------------------------
+
+class_foo通过类对象或对象实例调用。
+-------------------------------------
+>>> A.class_foo(1)
+executing class_foo(<class '__main__.A'>,1)
+cls: <class '__main__.A'>
+>>> a.class_foo(1)
+executing class_foo(<class '__main__.A'>,1)
+cls: <class '__main__.A'>
+-------------------------------------
+
+static_foo通过类对象或对象实例调用。
+-------------------------------------
+>>> A.static_foo(1)
+executing static_foo(1)
+>>> a.static_foo(1)
+executing static_foo(1)
+-------------------------------------
+'''
+
+
+# 4.继承与覆盖普通类函数是一样的。
+class B(A):
+    pass
+
+
+b = B()
+b.foo(1)
+b.class_foo(1)
+b.static_foo(1)
+# executing foo(<__main__.B object at 0x007027D0>,1)
+# self: <__main__.B object at 0x007027D0>
+# executing class_foo(<class '__main__.B'>,1)
+# cls: <class '__main__.B'>
+# executing static_foo(1)
+
+'''
+问题：@staticmethod修饰的方法函数与普通的类外函数，为什么不直接使用普通函数？
+@staticmethod是把函数嵌入到类中的一种方式，函数就属于类，同时表明函数不需要访问这个类。通过子类的继承覆盖，能更好的组织代码。
+
+参考：What is the difference between @staticmethod and @classmethod in Python?
+'''
