@@ -1,6 +1,6 @@
 # fib2.py
 #
-# Performance test (GIL!)
+# Performance 20. 单元测试 (GIL!)
 
 from inline_future import inlined_future, run_inline_future, start_inline_future
 from concurrent.futures import ProcessPoolExecutor

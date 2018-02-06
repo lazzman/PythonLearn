@@ -66,9 +66,9 @@ with self.assertRaises(AttributeError):
 
 class TestDict(unittest.TestCase):
     def test_init(self):
-        d = Dict(a=1, b='test')
+        d = Dict(a=1, b='20. 单元测试')
         self.assertEqual(d.a, 1)
-        self.assertEqual(d.b, 'test')
+        self.assertEqual(d.b, '20. 单元测试')
         self.assertTrue(isinstance(d, dict))
 
     def test_key(self):

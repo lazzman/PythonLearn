@@ -4,7 +4,7 @@
 from PIL import Image
 
 # 打开一个jpg图像文件，注意是当前路径:
-im = Image.open('test.jpg')
+im = Image.open('20. 单元测试.jpg')
 # 获得图像尺寸:
 w, h = im.size
 print('Original image size: %sx%s' % (w, h))

@@ -25,16 +25,16 @@ from datetime import datetime
     ========= ===============================================================
 '''
 
-with open('test.txt', 'w', encoding='utf-8') as f:
+with open('20. 单元测试.txt', 'w', encoding='utf-8') as f:
     f.write('今天是 ')
     f.write(datetime.now().strftime('%Y-%m-%d'))
 
-with open('test.txt', 'r', encoding='utf-8') as f:
+with open('20. 单元测试.txt', 'r', encoding='utf-8') as f:
     s = f.read()
     print('open for read...')
     print(s)
 
-with open('test.txt', 'rb') as f:
+with open('20. 单元测试.txt', 'rb') as f:
     s = f.read()
     print('open as binary for read...')
     print(s)
@@ -44,7 +44,7 @@ with open('test.txt', 'rb') as f:
 
 要以读文件的模式打开一个文件对象，使用Python内置的open()函数，传入文件名和标示符：
 -------------------------------------------------------
->>> f = open('/Users/michael/test.txt', 'r')
+>>> f = open('/Users/michael/20. 单元测试.txt', 'r')
 -------------------------------------------------------
 标示符'r'表示读，这样，我们就成功地打开了一个文件。
 
@@ -107,7 +107,7 @@ StringIO就是在内存中创建的file-like Object，常用作临时缓冲。(S
 
 前面讲的默认都是读取文本文件，并且是UTF-8编码的文本文件。要读取二进制文件，比如图片、视频等等，用'rb'模式打开文件即可：
 -------------------------------------------------------
->>> f = open('/Users/michael/test.jpg', 'rb')
+>>> f = open('/Users/michael/20. 单元测试.jpg', 'rb')
 >>> f.read()
 b'\xff\xd8\xff\xe1\x00\x18Exif\x00\x00...' # 十六进制表示的字节
 -------------------------------------------------------
@@ -134,14 +134,14 @@ b'\xff\xd8\xff\xe1\x00\x18Exif\x00\x00...' # 十六进制表示的字节
 
 写文件和读文件是一样的，唯一区别是调用open()函数时，传入标识符'w'或者'wb'表示写文本文件或写二进制文件：
 -------------------------------------------------------
->>> f = open('/Users/michael/test.txt', 'w')
+>>> f = open('/Users/michael/20. 单元测试.txt', 'w')
 >>> f.write('Hello, world!')
 >>> f.close()
 -------------------------------------------------------
 
 你可以反复调用write()来写入文件，但是务必要调用f.close()来关闭文件。当我们写文件时，操作系统往往不会立刻把数据写入磁盘，而是放到内存缓存起来，空闲的时候再慢慢写入。只有调用close()方法时，操作系统才保证把没有写入的数据全部写入磁盘。忘记调用close()的后果是数据可能只写了一部分到磁盘，剩下的丢失了。所以，还是用with语句来得保险：
 -------------------------------------------------------
-with open('/Users/michael/test.txt', 'w') as f:
+with open('/Users/michael/20. 单元测试.txt', 'w') as f:
     f.write('Hello, world!')
 要写入特定编码的文本文件，请给open()函数传入encoding参数，将字符串自动转换成指定编码。
 -------------------------------------------------------

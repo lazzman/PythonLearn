@@ -14,7 +14,7 @@ def gen_events(socks):
             yield "error",e
 
 # Example use
-# Use telnet to port 12000 to test this
+# Use telnet to port 12000 to 20. 单元测试 this
 
 if __name__ == '__main__':
     import socket

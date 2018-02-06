@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-' a test 5. 模块 '
+' a 20. 单元测试 5. 模块 '
 
 __author__ = 'Michael Liao'
 
@@ -47,7 +47,7 @@ sys模块有一个argv变量，用list存储了命令行的所有参数。argv�
 最后，注意到这两行代码：
 -----------------------------------
 if __name__=='__main__':
-    test()
+    20. 单元测试()
 -----------------------------------
 
 当我们在命令行运行hello模块文件时，Python解释器把一个特殊变量__name__置为__main__，而如果在其他地方导入该hello模块时，if判断将失败，因此，这种if测试可以让一个模块通过命令行运行时执行一些额外的代码，最常见的就是运行测试。
@@ -71,9 +71,9 @@ Type "help", "copyright", "credits" or "license" for more information.
 -----------------------------------
 导入时，没有打印Hello, word!，因为没有执行test()函数。
 
-调用hello.test()时，才能打印出Hello, word!：
+调用hello.20. 单元测试()时，才能打印出Hello, word!：
 -----------------------------------
->>> hello.test()
+>>> hello.20. 单元测试()
 Hello, world!
 -----------------------------------
 '''

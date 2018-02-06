@@ -6,7 +6,7 @@
 '''
 Python与java相比有一个比较好用的关键字，with
 with的比较常见的操作用于对文件的操作，线程锁的操作
-    with open('test.txt') as f:
+    with open('20. 单元测试.txt') as f:
         print f.read()
 
     with self.lock:    #使用“with”语句管理锁的获取和释放

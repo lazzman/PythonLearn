@@ -32,6 +32,6 @@ parser = MyHTMLParser()
 parser.feed('''<html>
 <head></head>
 <body>
-<!-- test html parser -->
+<!-- 20. 单元测试 html parser -->
     <p>Some <a href=\"#\">html</a> HTML&nbsp;tutorial...<br>END</p>
 </body></html>''')

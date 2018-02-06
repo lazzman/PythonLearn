@@ -26,7 +26,7 @@ import sqlite3
 # 连接到SQLite数据库
 # 数据库文件是test.17. 访问数据库
 # 如果文件不存在，会自动在当前目录创建:
-conn = sqlite3.connect('test.17. 访问数据库')
+conn = sqlite3.connect('20. 单元测试.17. 访问数据库')
 # 创建一个Cursor:
 cursor = conn.cursor()
 # 执行一条SQL语句，创建user表:
@@ -43,7 +43,7 @@ conn.commit()
 conn.close()
 
 # 查询记录：
-conn = sqlite3.connect('test.17. 访问数据库')
+conn = sqlite3.connect('20. 单元测试.17. 访问数据库')
 cursor = conn.cursor()
 # 执行查询语句:
 cursor.execute('SELECT * FROM user WHERE id=?', '1')

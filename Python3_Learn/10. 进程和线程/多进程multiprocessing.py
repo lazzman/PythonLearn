@@ -36,7 +36,7 @@ def run_proc(name):
 
 if __name__=='__main__':
     print('Parent process %s.' % os.getpid())
-    p = Process(target=run_proc, args=('test',))
+    p = Process(target=run_proc, args=('20. 单元测试',))
     print('Child process will start.')
     p.start()
     p.join()
@@ -47,7 +47,7 @@ if __name__=='__main__':
 ---------------------------------------------------
 Parent process 928.
 Process will start.
-Run child process test (929)...
+Run child process 20. 单元测试 (929)...
 Process end.
 ---------------------------------------------------
 

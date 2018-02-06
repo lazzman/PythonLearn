@@ -127,10 +127,10 @@ def decorator(fun):  # fun代表被装饰的函数(即myfunc)
 
 @decorator  # 传入两个函数
 def test(arg, arg2):  # 有返回值的函数
-    print 'test', arg, arg2
+    print '20. 单元测试', arg, arg2
     return arg, arg2
 
-print test("invoke", 'test')
+print test("invoke", '20. 单元测试')
 print test.info
 print help(test.__class__)  # 函数也是一个类，并且是新式类
 
